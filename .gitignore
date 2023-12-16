@@ -1,0 +1,10 @@
+node_modules
+build
+*.swp
+*.swo
+*.swn
+artifact
+prebuilds/
+.nyc_output
+coverage
+*~
