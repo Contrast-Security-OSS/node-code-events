@@ -24,45 +24,32 @@ Local<Value> CsiCodeEventHandler::New(Isolate *isolate, Local<Object> exports) {
     return External::New(isolate, new CsiCodeEventHandler(isolate, exports));
 }
 
-  //Persistent<Object> CsiCodeEventHandler::exports_persistent;
 
-    void CsiCodeEventHandler::Handle(CodeEvent *event) {
-        events.enqueue(event);
-    }
+void CsiCodeEventHandler::Handle(CodeEvent *event) {
+    events.enqueue(event);
+}
 
-    EventNode* CsiCodeEventHandler::dequeue() {
-        return this->events.dequeue();
-    }
+EventNode* CsiCodeEventHandler::dequeue() {
+    return this->events.dequeue();
+}
 
 unsigned int CsiCodeEventHandler::eventCount() {
     return this->events.length;
 }
 
-//  private:
-//    Isolate *isolate;
-//    EventQueue events;
-//};
-
-////////
-//CsiCodeEventHandler *handler;
-
-//NAN_METHOD(initHandler) {
 void initHandler(const v8::FunctionCallbackInfo<v8::Value> &info) {
-    CsiCodeEventHandler* handler = static_cast<CsiCodeEventHandler*>(info[0].As<External>()->Value());
+    CsiCodeEventHandler* handler = static_cast<CsiCodeEventHandler*>(info.Data().As<External>()->Value());
 
-    //handler = new CsiCodeEventHandler(info.GetIsolate());
     handler->Enable();
 }
 
-//NAN_METHOD(deinitHandler) {
 void deinitHandler(const v8::FunctionCallbackInfo<v8::Value> &info) {
-    CsiCodeEventHandler* handler = static_cast<CsiCodeEventHandler*>(info[0].As<External>()->Value());
+    CsiCodeEventHandler* handler = static_cast<CsiCodeEventHandler*>(info.Data().As<External>()->Value());
     handler->Disable();
 }
 
-//NAN_METHOD(getNextCodeEvent) {
 void getNextCodeEvent(const v8::FunctionCallbackInfo<v8::Value> &info) {
-    CsiCodeEventHandler* handler = static_cast<CsiCodeEventHandler*>(info[0].As<External>()->Value());
+    CsiCodeEventHandler* handler = static_cast<CsiCodeEventHandler*>(info.Data().As<External>()->Value());
 
     EventNode *node = handler->dequeue();
 

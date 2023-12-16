@@ -6,9 +6,11 @@
 
 #include "event-queue.h"
 
-//NAN_METHOD(initHandler);
-//NAN_METHOD(deinitHandler);
-//NAN_METHOD(getNextCodeEvent);
+#define PRINT(expr) {\
+    fprintf(stderr, expr);\
+    fflush(stderr);\
+}
+
 void initHandler(const v8::FunctionCallbackInfo<v8::Value> &info);
 void deinitHandler(const v8::FunctionCallbackInfo<v8::Value> &info);
 void getNextCodeEvent(const v8::FunctionCallbackInfo<v8::Value> &info);
