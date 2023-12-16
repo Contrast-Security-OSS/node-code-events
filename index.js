@@ -12,10 +12,10 @@ module.exports = {
    * Will start listening for code events if not already listening.
    * starts a timer which polls for an available code event once every `interval` value.
    *
-   * @param {Function} cb callback function to call
-   * @param {number} [interval=1] how often to get code events in ms
+   * @param {Function} cb callback function to process code events
+   * @param {number} [interval=1000] polling interval in ms
    */
-  setCodeEventListener(cb, interval = 1) {
+  setCodeEventListener(cb, interval = 1000) {
     if (codeEventsInited) {
       codeEventListener = cb;
       return;

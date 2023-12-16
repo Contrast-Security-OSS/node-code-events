@@ -1,13 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-types */
 
-declare interface FunctionInfo {
-  file: string;
-  column: number;
-  lineNumber: number;
-  method: string;
-  type: 'AsyncFunction' | 'Function';
-}
-
 declare interface CodeEvent {
   func: string;
   lineNumber: number;
@@ -28,9 +20,6 @@ declare interface CodeEvent {
 }
 
 declare const code_events: {
-  /** Retrieves name, type, column, lineNumber and file from a function reference */
-  funcInfo(fn: Function): FunctionInfo | null;
-
   /**
    * Sets the function for processing v8 code events.
    * Will start listening for code events if not already listening.
