@@ -1,7 +1,7 @@
 {
   "name": "@contrast/code-events",
   "version": "1.0.0",
-  "description": "Retrieve function name and line number from a function reference",
+  "description": "Subscribe to receive queued v8 CodeEvents on polling interval",
   "keywords": [
     "instrumentation"
   ],
