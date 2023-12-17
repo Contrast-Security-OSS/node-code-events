@@ -34,6 +34,8 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
           architecture: x64
+      - name: Belt and Suspenders
+        run: npm install node-gyp@9.4.1
       - name: Install
         run: npm ci
       - name: Show node-gyp version
