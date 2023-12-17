@@ -176,7 +176,7 @@ describe('setCodeEventListener', function () {
     });
   });
 
-  it('can be stop listening when not listening', function () {
+  it('can stop listening when not listening', function () {
     stopListening();
   });
 });
