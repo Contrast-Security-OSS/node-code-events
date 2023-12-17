@@ -36,6 +36,7 @@ jobs:
           architecture: x64
       - name: Python version
         run: python --version
+      # distutils is no longer included in python 3.12
       - name: Install setuptools
         run: pip install setuptools
       - name: Install
