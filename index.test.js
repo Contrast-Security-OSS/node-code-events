@@ -22,7 +22,10 @@ describe('canary worker_thread test', function () {
 
     worker.on('error', done);
 
-    worker.on('exit', exitCode => { expect(exitCode).equal(0); done(); });
+    worker.on('exit', exitCode => {
+      expect(exitCode).equal(0);
+      done();
+    });
   });
 });
 
@@ -84,7 +87,7 @@ describe('setCodeEventListener', function () {
     const event = await waitForLazyCompile('testfunc1');
     expect(event).to.deep.equal({
       func: 'testfunc1',
-      lineNumber: 78,
+      lineNumber: 81,
       script: __filename,
       type
     });
@@ -98,7 +101,7 @@ describe('setCodeEventListener', function () {
     const event = await waitForLazyCompile('testfunc2');
     expect(event).to.deep.equal({
       func: 'testfunc2',
-      lineNumber: 94,
+      lineNumber: 97,
       script: __filename,
       type
     });
@@ -121,7 +124,7 @@ describe('setCodeEventListener', function () {
     const event1 = await waitForLazyCompile('MyClass');
     expect(event1).to.deep.equal({
       func: 'MyClass',
-      lineNumber: 109,
+      lineNumber: 112,
       script: __filename,
       type
     });
@@ -129,7 +132,7 @@ describe('setCodeEventListener', function () {
     const event2 = await waitForLazyCompile('bar');
     expect(event2).to.deep.equal({
       func: 'bar',
-      lineNumber: 113,
+      lineNumber: 116,
       script: __filename,
       type
     });
@@ -144,7 +147,7 @@ describe('setCodeEventListener', function () {
     const event = await waitForLazyCompile('testfunc3');
     expect(event).to.deep.equal({
       func: 'testfunc3',
-      lineNumber: 141,
+      lineNumber: 144,
       script: __filename,
       type
     });
@@ -167,10 +170,14 @@ describe('setCodeEventListener', function () {
     expect(newListenerCalled).to.be.true;
     expect(event).to.deep.equal({
       func: 'testfunc4',
-      lineNumber: 163,
+      lineNumber: 166,
       script: __filename,
       type
     });
+  });
+
+  it('can be stop listening when not listening', function () {
+    stopListening();
   });
 });
 
