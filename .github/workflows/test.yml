@@ -34,11 +34,11 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
           architecture: x64
+      - name: Install
+        run: npm ci
       - name: Show node-gyp version
         run: npm ls node-gyp
       - name: Dump file
         run: cat node_modules/node-gyp/gyp/pylib/gyp/input.py
-      - name: Install
-        run: npm ci
       - name: Test
         run: npm test
