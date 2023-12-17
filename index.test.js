@@ -5,6 +5,27 @@ const semver = require('semver');
 const { expect } = require('chai');
 const { setCodeEventListener, stopListening } = require('.');
 
+describe('canary worker_thread test', function () {
+  it('require in a worker thread succeeds after require in main thread', function (done) {
+    const { Worker } = require('worker_threads');
+    const worker = new Worker(`
+      const { setCodeEventListener, stopListening } = require('.');
+
+      setCodeEventListener(function (event) {
+        console.log(event);
+      });
+
+      setTimeout(() => {
+        stopListening();
+      }, 100);
+    `, { eval: true });
+
+    worker.on('error', done);
+
+    worker.on('exit', exitCode => { expect(exitCode).equal(0); done(); });
+  });
+});
+
 describe('setCodeEventListener', function () {
   const type = semver.gte(process.version, '20.0.0') ? 'Function' : 'LazyCompile';
   const TIMEOUT = process.platform === 'win32' ? 61000 : 10000;
@@ -38,7 +59,7 @@ describe('setCodeEventListener', function () {
       events.push(event);
     };
 
-    setCodeEventListener(handler);
+    setCodeEventListener(handler, 1);
 
     // in CI it takes a long time for windows to get through the initial burst
     // of available code events
@@ -63,7 +84,7 @@ describe('setCodeEventListener', function () {
     const event = await waitForLazyCompile('testfunc1');
     expect(event).to.deep.equal({
       func: 'testfunc1',
-      lineNumber: 57,
+      lineNumber: 78,
       script: __filename,
       type
     });
@@ -77,7 +98,7 @@ describe('setCodeEventListener', function () {
     const event = await waitForLazyCompile('testfunc2');
     expect(event).to.deep.equal({
       func: 'testfunc2',
-      lineNumber: 73,
+      lineNumber: 94,
       script: __filename,
       type
     });
@@ -100,7 +121,7 @@ describe('setCodeEventListener', function () {
     const event1 = await waitForLazyCompile('MyClass');
     expect(event1).to.deep.equal({
       func: 'MyClass',
-      lineNumber: 88,
+      lineNumber: 109,
       script: __filename,
       type
     });
@@ -108,7 +129,7 @@ describe('setCodeEventListener', function () {
     const event2 = await waitForLazyCompile('bar');
     expect(event2).to.deep.equal({
       func: 'bar',
-      lineNumber: 92,
+      lineNumber: 113,
       script: __filename,
       type
     });
@@ -123,7 +144,7 @@ describe('setCodeEventListener', function () {
     const event = await waitForLazyCompile('testfunc3');
     expect(event).to.deep.equal({
       func: 'testfunc3',
-      lineNumber: 120,
+      lineNumber: 141,
       script: __filename,
       type
     });
@@ -146,7 +167,7 @@ describe('setCodeEventListener', function () {
     expect(newListenerCalled).to.be.true;
     expect(event).to.deep.equal({
       func: 'testfunc4',
-      lineNumber: 142,
+      lineNumber: 163,
       script: __filename,
       type
     });
