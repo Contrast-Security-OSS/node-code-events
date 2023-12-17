@@ -1,34 +1,26 @@
-# @contrast/fn-inspect
+# @contrast/code-events
 
-[![Test](https://github.com/Contrast-Security-Inc/node-fn-inspect/actions/workflows/test.yml/badge.svg)](https://github.com/Contrast-Security-Inc/node-fn-inspect/actions/workflows/test.yml)
+[![Test](https://github.com/Contrast-Security-Inc/node-code-events/actions/workflows/test.yml/badge.svg)](https://github.com/Contrast-Security-Inc/node-code-events/actions/workflows/test.yml)
 
-This module exposes some useful information from the underlying v8 engine,
-including:
-
-- file and line number given a function reference
-- code events (i.e. `'LAZY_COMPILE'`)
+This module exposes CodeEvent data from the underlying v8 engine, such as 'LAZY_COMPILE'.
 
 ## Usage
 
-Getting details about a function:
+Register a listener for code events:
 
 ```js
-const { funcInfo } = require('@contrast/fn-inspect');
+const { setCodeEventListener } = require('@contrast/code-events');
 
-function testFn() {}
-
-const results = funcInfo(testFn);
-// => { lineNumber: 2, column: 15, file: 'example.js', method: 'testFn', type: 'Function' }
-```
-
-Registering a listener for code events:
-
-```js
-const { setCodeEventListener } = require('@contrast/fn-inspect');
-
+// with the default poll interval of one second:
 setCodeEventListener((event) => {
   console.log(event);
 });
+
+// with a custom poll interval of 500ms:
+setCodeEventListener((event) => {
+  console.log(event);
+}, 500);
+```
 ```
 
 ## Building locally
