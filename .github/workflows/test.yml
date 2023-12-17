@@ -36,6 +36,8 @@ jobs:
           architecture: x64
       - name: Belt and Suspenders
         run: npm install node-gyp@9.4.1
+      - name: Python version
+        run: python --version
       - name: Install
         run: npm install
       - name: Show node-gyp version
