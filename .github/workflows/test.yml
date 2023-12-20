@@ -34,13 +34,17 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
           architecture: x64
+      # versions of npm associated with node 12 on macs use an ancient version
+      # of node-gyp when executing `npm ci`.
+      - name: Update npm
+        run: npm install -g npm@8
       - name: Python version
         run: python --version
       # distutils is no longer included in python 3.12
       - name: Install setuptools
         run: pip install setuptools
       - name: Install
-        run: npm install
+        run: npm ci
       - name: Show node-gyp version
         run: npm ls node-gyp
       - name: Dump file
