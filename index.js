@@ -28,6 +28,7 @@ module.exports = {
       const codeEvent = binding.getNextCodeEvent();
       if (codeEvent) codeEventListener(codeEvent);
     }, interval);
+    timer.unref();
   },
 
   /**
