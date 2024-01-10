@@ -1,6 +1,6 @@
 {
   "name": "@contrast/code-events",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Subscribe to receive queued v8 CodeEvents on polling interval",
   "keywords": [
     "instrumentation"
