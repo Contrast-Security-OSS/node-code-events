@@ -4,7 +4,7 @@
   "description": "Listen for v8 CodeEvents and make them available to JavaScript",
   "main": "index.js",
   "repository": "",
-  "author": "Bruce A. MacNaughton",
+  "author": "Contrast Security, Inc.",
   "license": "MIT",
   "homepage": "",
   "files": [
