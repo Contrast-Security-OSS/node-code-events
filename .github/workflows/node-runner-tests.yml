@@ -50,6 +50,6 @@ jobs:
         run: npm ls node-gyp
       # run the tests first to ensure that they run successfully
       - name: run node:test tests
-        run: node "test/*.node-test.js"
+        run: node test/*.node-test.js
       - name: execute-leak-suite
         run: ./scripts/execute-leak-suite.sh
