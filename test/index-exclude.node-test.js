@@ -1,7 +1,7 @@
 // @ts-check
 'use strict';
 
-const assert = require('node:assert/strict');
+const assert = require('node:assert').strict;
 const { describe, it, before, afterEach, after } = require('node:test');
 
 const codeEvents = require('../index.js');
