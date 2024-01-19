@@ -49,7 +49,19 @@ jobs:
       - name: Show node-gyp version
         run: npm ls node-gyp
       # run the tests first to ensure that they run successfully
-      - name: run node:test tests
-        run: node test/*.node-test.js
+      - name: run node:test noop
+        run: node test/noop.node-test.js
+      - name: run node:test index-exclude
+        run: node test/index-exclude.node-test.js
+      - name: run node:test index-include
+        run: node test/index-include.node-test.js
+      - name: node:test multi-thread
+        run: node test/multi-thread.node-test.js
+      - name: node:test worker-thread-exec-test
+        run: node test/worker-thread-exec-test.node-test.js
+      # now can run the leak checks
       - name: execute-leak-suite
         run: ./scripts/execute-leak-suite.sh
+      # finally, verify the internals
+      - name: node:test internals
+        run: node test/internals.node-test.js
