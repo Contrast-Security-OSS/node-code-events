@@ -3,7 +3,7 @@ name: Test
 on:
   push:
     tags:
-      - *-run-leak-checks
+      - '*-run-leak-checks'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
