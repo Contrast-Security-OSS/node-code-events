@@ -2,34 +2,40 @@
   "variables" : {
     "openssl_fips": ""
   },
-  "targets": [
-    {
-      "target_name": "code_events",
-      "sources": [
-        "src/addon.cc",
-        "src/code-events.cc",
-        "src/event-queue.cc"
-      ],
-      "include_dirs": [
-        "<!(node -e \"require('nan')\")"
-      ],
-      "conditions": [
-        [
-          "OS == 'mac'",
-          {
-            "xcode_settings": {
-              "OTHER_CFLAGS": [
-                "-arch x86_64",
-                "-arch arm64"
-              ],
-              "OTHER_LDFLAGS": [
-                "-arch x86_64",
-                "-arch arm64"
-              ]
-            }
-          }
-        ]
+  "targets": [{
+    "target_name": "code_events",
+    "sources": [
+      "src/main.cpp"
+    ],
+    "include_dirs": [
+      "src",
+      "<!@(node -p \"require('node-addon-api').include\")",
+      "node_modules/nan"
+    ],
+    "defines": [
+      "NAPI_DISABLE_CPP_EXCEPTIONS"
+    ],
+    "xcode_settings": {
+      "MACOSX_DEPLOYMENT_TARGET": "10.10",
+      "OTHER_CFLAGS": [
+        "-std=c++17",
+        "-stdlib=libc++",
+        "-Wall"
       ]
-    }
-  ]
+    },
+    "conditions": [
+      ["OS == 'linux'", {
+        "cflags": [
+          "-std=c++11",
+          "-Wall"
+        ],
+        "cflags_cc": [
+          "-Wno-cast-function-type"
+        ]
+      }],
+      ["OS == 'win'", {
+        "cflags": []
+      }]
+    ]
+  }]
 }

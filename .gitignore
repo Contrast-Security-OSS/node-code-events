@@ -1,10 +1,8 @@
-node_modules
-build
-*.swp
-*.swo
-*.swn
-artifact
+build/
+node_modules/
+coverage/
+valgrind*.xml
+Debug/
+Release/
 prebuilds/
-.nyc_output
-coverage
-*~
+compile_commands.json

@@ -1,0 +1,2749 @@
+[
+    {
+        "unique": {
+            "_text": "0x4"
+        },
+        "tid": {
+            "_text": "1"
+        },
+        "kind": {
+            "_text": "Leak_IndirectlyLost"
+        },
+        "xwhat": {
+            "text": {
+                "_text": "16 bytes in 2 blocks are indirectly lost in loss record 5 of 65"
+            },
+            "leakedbytes": {
+                "_text": "16"
+            },
+            "leakedblocks": {
+                "_text": "2"
+            }
+        },
+        "stack": {
+            "frame": [
+                {
+                    "ip": {
+                        "_text": "0x5CFB80F"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.local/bin/libexec/valgrind/vgpreload_memcheck-amd64-linux.so"
+                    },
+                    "fn": {
+                        "_text": "malloc"
+                    },
+                    "dir": {
+                        "_text": "/home/bruce/valgrind-3.21.0/coregrind/m_replacemalloc"
+                    },
+                    "file": {
+                        "_text": "vg_replace_malloc.c"
+                    },
+                    "line": {
+                        "_text": "431"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x610958E"
+                    },
+                    "obj": {
+                        "_text": "/usr/lib/x86_64-linux-gnu/libc.so.6"
+                    },
+                    "fn": {
+                        "_text": "strdup"
+                    },
+                    "dir": {
+                        "_text": "./string/./string"
+                    },
+                    "file": {
+                        "_text": "strdup.c"
+                    },
+                    "line": {
+                        "_text": "42"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x5D1A3A7"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/github/csi/code-events/prebuilds/linux-x64/node.abi115.node"
+                    },
+                    "fn": {
+                        "_text": "EventQueue::enqueue(v8::CodeEvent*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x12214E6"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::ExternalLogEventListener::CodeCreateEvent(v8::internal::LogEventListener::CodeTag, v8::internal::Handle<v8::internal::AbstractCode>, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Handle<v8::internal::Name>, int, int)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF7CE76"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Compiler::LogFunctionCompilation(v8::internal::Isolate*, v8::internal::LogEventListener::CodeTag, v8::internal::Handle<v8::internal::Script>, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Handle<v8::internal::FeedbackVector>, v8::internal::Handle<v8::internal::AbstractCode>, v8::internal::CodeKind, double)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF7F8B0"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Compiler::CompileSharedWithBaseline(v8::internal::Isolate*, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Compiler::ClearExceptionFlag, v8::internal::IsCompiledScope*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF7FD4C"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Compiler::CompileBaseline(v8::internal::Isolate*, v8::internal::Handle<v8::internal::JSFunction>, v8::internal::Compiler::ClearExceptionFlag, v8::internal::IsCompiledScope*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF11FB7"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::baseline::BaselineBatchCompiler::CompileBatch(v8::internal::Handle<v8::internal::JSFunction>)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x1057833"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::TieringManager::OnInterruptTick(v8::internal::Handle<v8::internal::JSFunction>, v8::internal::CodeKind)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x14F74CF"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Runtime_BytecodeBudgetInterrupt_Ignition(int, unsigned long*, v8::internal::Isolate*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x1931EF5"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_CEntry_Return1_ArgvOnStack_NoBuiltinExit"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x19F51A3"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_ReturnHandler"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "unique": {
+            "_text": "0x6"
+        },
+        "tid": {
+            "_text": "1"
+        },
+        "kind": {
+            "_text": "Leak_IndirectlyLost"
+        },
+        "xwhat": {
+            "text": {
+                "_text": "18 bytes in 2 blocks are indirectly lost in loss record 7 of 65"
+            },
+            "leakedbytes": {
+                "_text": "18"
+            },
+            "leakedblocks": {
+                "_text": "2"
+            }
+        },
+        "stack": {
+            "frame": [
+                {
+                    "ip": {
+                        "_text": "0x5CFB80F"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.local/bin/libexec/valgrind/vgpreload_memcheck-amd64-linux.so"
+                    },
+                    "fn": {
+                        "_text": "malloc"
+                    },
+                    "dir": {
+                        "_text": "/home/bruce/valgrind-3.21.0/coregrind/m_replacemalloc"
+                    },
+                    "file": {
+                        "_text": "vg_replace_malloc.c"
+                    },
+                    "line": {
+                        "_text": "431"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x610958E"
+                    },
+                    "obj": {
+                        "_text": "/usr/lib/x86_64-linux-gnu/libc.so.6"
+                    },
+                    "fn": {
+                        "_text": "strdup"
+                    },
+                    "dir": {
+                        "_text": "./string/./string"
+                    },
+                    "file": {
+                        "_text": "strdup.c"
+                    },
+                    "line": {
+                        "_text": "42"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x5D1A1A8"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/github/csi/code-events/prebuilds/linux-x64/node.abi115.node"
+                    },
+                    "fn": {
+                        "_text": "EventQueue::enqueue(v8::CodeEvent*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x12214E6"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::ExternalLogEventListener::CodeCreateEvent(v8::internal::LogEventListener::CodeTag, v8::internal::Handle<v8::internal::AbstractCode>, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Handle<v8::internal::Name>, int, int)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF7CE76"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Compiler::LogFunctionCompilation(v8::internal::Isolate*, v8::internal::LogEventListener::CodeTag, v8::internal::Handle<v8::internal::Script>, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Handle<v8::internal::FeedbackVector>, v8::internal::Handle<v8::internal::AbstractCode>, v8::internal::CodeKind, double)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF7F8B0"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Compiler::CompileSharedWithBaseline(v8::internal::Isolate*, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Compiler::ClearExceptionFlag, v8::internal::IsCompiledScope*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF7FD4C"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Compiler::CompileBaseline(v8::internal::Isolate*, v8::internal::Handle<v8::internal::JSFunction>, v8::internal::Compiler::ClearExceptionFlag, v8::internal::IsCompiledScope*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF11FB7"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::baseline::BaselineBatchCompiler::CompileBatch(v8::internal::Handle<v8::internal::JSFunction>)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x1057833"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::TieringManager::OnInterruptTick(v8::internal::Handle<v8::internal::JSFunction>, v8::internal::CodeKind)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x14F74CF"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Runtime_BytecodeBudgetInterrupt_Ignition(int, unsigned long*, v8::internal::Isolate*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x1931EF5"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_CEntry_Return1_ArgvOnStack_NoBuiltinExit"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x19F51A3"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_ReturnHandler"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "unique": {
+            "_text": "0x8"
+        },
+        "tid": {
+            "_text": "1"
+        },
+        "kind": {
+            "_text": "Leak_IndirectlyLost"
+        },
+        "xwhat": {
+            "text": {
+                "_text": "32 bytes in 1 blocks are indirectly lost in loss record 9 of 65"
+            },
+            "leakedbytes": {
+                "_text": "32"
+            },
+            "leakedblocks": {
+                "_text": "1"
+            }
+        },
+        "stack": {
+            "frame": [
+                {
+                    "ip": {
+                        "_text": "0x5CFBF95"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.local/bin/libexec/valgrind/vgpreload_memcheck-amd64-linux.so"
+                    },
+                    "fn": {
+                        "_text": "operator new(unsigned long)"
+                    },
+                    "dir": {
+                        "_text": "/home/bruce/valgrind-3.21.0/coregrind/m_replacemalloc"
+                    },
+                    "file": {
+                        "_text": "vg_replace_malloc.c"
+                    },
+                    "line": {
+                        "_text": "472"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xEDA173"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::CodeEventHandler::CodeEventHandler(v8::Isolate*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x5D19A6E"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/github/csi/code-events/prebuilds/linux-x64/node.abi115.node"
+                    },
+                    "fn": {
+                        "_text": "CsiCodeEventHandler::CsiCodeEventHandler(v8::Isolate*, v8::Local<v8::Object>)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x5D19B12"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/github/csi/code-events/prebuilds/linux-x64/node.abi115.node"
+                    },
+                    "fn": {
+                        "_text": "CsiCodeEventHandler::New(v8::Isolate*, v8::Local<v8::Object>)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x5D19760"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/github/csi/code-events/prebuilds/linux-x64/node.abi115.node"
+                    },
+                    "fn": {
+                        "_text": "node_register_module_v115"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xC5F66A"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "std::_Function_handler<bool (node::binding::DLib*), node::binding::DLOpen(v8::FunctionCallbackInfo<v8::Value> const&)::{lambda(node::binding::DLib*)#1}>::_M_invoke(std::_Any_data const&, node::binding::DLib*&&)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xC11D0D"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "node::Environment::TryLoadAddon(char const*, int, std::function<bool (node::binding::DLib*)> const&)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xC5EB48"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "node::binding::DLOpen(v8::FunctionCallbackInfo<v8::Value> const&)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF26DEE"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::FunctionCallbackArguments::Call(v8::internal::CallHandlerInfo)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF2765C"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::MaybeHandle<v8::internal::Object> v8::internal::(anonymous namespace)::HandleApiCallHelper<false>(v8::internal::Isolate*, v8::internal::Handle<v8::internal::HeapObject>, v8::internal::Handle<v8::internal::FunctionTemplateInfo>, v8::internal::Handle<v8::internal::Object>, unsigned long*, int)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF27B24"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Builtin_HandleApiCall(int, unsigned long*, v8::internal::Isolate*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x1931DF5"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_CEntry_Return1_ArgvOnStack_BuiltinExit"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "unique": {
+            "_text": "0x9"
+        },
+        "tid": {
+            "_text": "1"
+        },
+        "kind": {
+            "_text": "Leak_IndirectlyLost"
+        },
+        "xwhat": {
+            "text": {
+                "_text": "32 bytes in 1 blocks are indirectly lost in loss record 10 of 65"
+            },
+            "leakedbytes": {
+                "_text": "32"
+            },
+            "leakedblocks": {
+                "_text": "1"
+            }
+        },
+        "stack": {
+            "frame": [
+                {
+                    "ip": {
+                        "_text": "0x5CFBF95"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.local/bin/libexec/valgrind/vgpreload_memcheck-amd64-linux.so"
+                    },
+                    "fn": {
+                        "_text": "operator new(unsigned long)"
+                    },
+                    "dir": {
+                        "_text": "/home/bruce/valgrind-3.21.0/coregrind/m_replacemalloc"
+                    },
+                    "file": {
+                        "_text": "vg_replace_malloc.c"
+                    },
+                    "line": {
+                        "_text": "472"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xEDA173"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::CodeEventHandler::CodeEventHandler(v8::Isolate*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x5D19A6E"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/github/csi/code-events/prebuilds/linux-x64/node.abi115.node"
+                    },
+                    "fn": {
+                        "_text": "CsiCodeEventHandler::CsiCodeEventHandler(v8::Isolate*, v8::Local<v8::Object>)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x5D19B12"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/github/csi/code-events/prebuilds/linux-x64/node.abi115.node"
+                    },
+                    "fn": {
+                        "_text": "CsiCodeEventHandler::New(v8::Isolate*, v8::Local<v8::Object>)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x5D19760"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/github/csi/code-events/prebuilds/linux-x64/node.abi115.node"
+                    },
+                    "fn": {
+                        "_text": "node_register_module_v115"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xC5F80B"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "std::_Function_handler<bool (node::binding::DLib*), node::binding::DLOpen(v8::FunctionCallbackInfo<v8::Value> const&)::{lambda(node::binding::DLib*)#1}>::_M_invoke(std::_Any_data const&, node::binding::DLib*&&)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xC11D0D"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "node::Environment::TryLoadAddon(char const*, int, std::function<bool (node::binding::DLib*)> const&)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xC5EB48"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "node::binding::DLOpen(v8::FunctionCallbackInfo<v8::Value> const&)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF26DEE"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::FunctionCallbackArguments::Call(v8::internal::CallHandlerInfo)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF2765C"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::MaybeHandle<v8::internal::Object> v8::internal::(anonymous namespace)::HandleApiCallHelper<false>(v8::internal::Isolate*, v8::internal::Handle<v8::internal::HeapObject>, v8::internal::Handle<v8::internal::FunctionTemplateInfo>, v8::internal::Handle<v8::internal::Object>, unsigned long*, int)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF27B24"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Builtin_HandleApiCall(int, unsigned long*, v8::internal::Isolate*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x1931DF5"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_CEntry_Return1_ArgvOnStack_BuiltinExit"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "unique": {
+            "_text": "0x14"
+        },
+        "tid": {
+            "_text": "1"
+        },
+        "kind": {
+            "_text": "Leak_IndirectlyLost"
+        },
+        "xwhat": {
+            "text": {
+                "_text": "72 bytes in 8 blocks are indirectly lost in loss record 21 of 65"
+            },
+            "leakedbytes": {
+                "_text": "72"
+            },
+            "leakedblocks": {
+                "_text": "8"
+            }
+        },
+        "stack": {
+            "frame": [
+                {
+                    "ip": {
+                        "_text": "0x5CFB80F"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.local/bin/libexec/valgrind/vgpreload_memcheck-amd64-linux.so"
+                    },
+                    "fn": {
+                        "_text": "malloc"
+                    },
+                    "dir": {
+                        "_text": "/home/bruce/valgrind-3.21.0/coregrind/m_replacemalloc"
+                    },
+                    "file": {
+                        "_text": "vg_replace_malloc.c"
+                    },
+                    "line": {
+                        "_text": "431"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x610958E"
+                    },
+                    "obj": {
+                        "_text": "/usr/lib/x86_64-linux-gnu/libc.so.6"
+                    },
+                    "fn": {
+                        "_text": "strdup"
+                    },
+                    "dir": {
+                        "_text": "./string/./string"
+                    },
+                    "file": {
+                        "_text": "strdup.c"
+                    },
+                    "line": {
+                        "_text": "42"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x5D1A1A8"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/github/csi/code-events/prebuilds/linux-x64/node.abi115.node"
+                    },
+                    "fn": {
+                        "_text": "EventQueue::enqueue(v8::CodeEvent*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x12214E6"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::ExternalLogEventListener::CodeCreateEvent(v8::internal::LogEventListener::CodeTag, v8::internal::Handle<v8::internal::AbstractCode>, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Handle<v8::internal::Name>, int, int)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF7CE76"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Compiler::LogFunctionCompilation(v8::internal::Isolate*, v8::internal::LogEventListener::CodeTag, v8::internal::Handle<v8::internal::Script>, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Handle<v8::internal::FeedbackVector>, v8::internal::Handle<v8::internal::AbstractCode>, v8::internal::CodeKind, double)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF8197B"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::(anonymous namespace)::FinalizeUnoptimizedCompilation(v8::internal::Isolate*, v8::internal::Handle<v8::internal::Script>, v8::internal::UnoptimizedCompileFlags const&, v8::internal::UnoptimizedCompileState const*, std::vector<v8::internal::FinalizeUnoptimizedCompilationData, std::allocator<v8::internal::FinalizeUnoptimizedCompilationData> > const&)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF8AEAB"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Compiler::Compile(v8::internal::Isolate*, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Compiler::ClearExceptionFlag, v8::internal::IsCompiledScope*, v8::internal::CreateSourcePositions)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF8B2ED"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Compiler::Compile(v8::internal::Isolate*, v8::internal::Handle<v8::internal::JSFunction>, v8::internal::Compiler::ClearExceptionFlag, v8::internal::IsCompiledScope*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x14EDAB9"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Runtime_CompileLazy(int, unsigned long*, v8::internal::Isolate*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x1931EF5"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_CEntry_Return1_ArgvOnStack_NoBuiltinExit"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x18A5123"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_CompileLazy"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x18A3D1B"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_InterpreterEntryTrampoline"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "unique": {
+            "_text": "0x18"
+        },
+        "tid": {
+            "_text": "1"
+        },
+        "kind": {
+            "_text": "Leak_IndirectlyLost"
+        },
+        "xwhat": {
+            "text": {
+                "_text": "80 bytes in 2 blocks are indirectly lost in loss record 25 of 65"
+            },
+            "leakedbytes": {
+                "_text": "80"
+            },
+            "leakedblocks": {
+                "_text": "2"
+            }
+        },
+        "stack": {
+            "frame": [
+                {
+                    "ip": {
+                        "_text": "0x5CFBF95"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.local/bin/libexec/valgrind/vgpreload_memcheck-amd64-linux.so"
+                    },
+                    "fn": {
+                        "_text": "operator new(unsigned long)"
+                    },
+                    "dir": {
+                        "_text": "/home/bruce/valgrind-3.21.0/coregrind/m_replacemalloc"
+                    },
+                    "file": {
+                        "_text": "vg_replace_malloc.c"
+                    },
+                    "line": {
+                        "_text": "472"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x5D1A170"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/github/csi/code-events/prebuilds/linux-x64/node.abi115.node"
+                    },
+                    "fn": {
+                        "_text": "EventQueue::enqueue(v8::CodeEvent*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x12214E6"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::ExternalLogEventListener::CodeCreateEvent(v8::internal::LogEventListener::CodeTag, v8::internal::Handle<v8::internal::AbstractCode>, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Handle<v8::internal::Name>, int, int)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF7CE76"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Compiler::LogFunctionCompilation(v8::internal::Isolate*, v8::internal::LogEventListener::CodeTag, v8::internal::Handle<v8::internal::Script>, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Handle<v8::internal::FeedbackVector>, v8::internal::Handle<v8::internal::AbstractCode>, v8::internal::CodeKind, double)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF7F8B0"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Compiler::CompileSharedWithBaseline(v8::internal::Isolate*, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Compiler::ClearExceptionFlag, v8::internal::IsCompiledScope*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF7FD4C"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Compiler::CompileBaseline(v8::internal::Isolate*, v8::internal::Handle<v8::internal::JSFunction>, v8::internal::Compiler::ClearExceptionFlag, v8::internal::IsCompiledScope*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF11FB7"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::baseline::BaselineBatchCompiler::CompileBatch(v8::internal::Handle<v8::internal::JSFunction>)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x1057833"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::TieringManager::OnInterruptTick(v8::internal::Handle<v8::internal::JSFunction>, v8::internal::CodeKind)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x14F74CF"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Runtime_BytecodeBudgetInterrupt_Ignition(int, unsigned long*, v8::internal::Isolate*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x1931EF5"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_CEntry_Return1_ArgvOnStack_NoBuiltinExit"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x19F51A3"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_ReturnHandler"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x18A3D1B"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_InterpreterEntryTrampoline"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "unique": {
+            "_text": "0x19"
+        },
+        "tid": {
+            "_text": "1"
+        },
+        "kind": {
+            "_text": "Leak_IndirectlyLost"
+        },
+        "xwhat": {
+            "text": {
+                "_text": "80 bytes in 8 blocks are indirectly lost in loss record 26 of 65"
+            },
+            "leakedbytes": {
+                "_text": "80"
+            },
+            "leakedblocks": {
+                "_text": "8"
+            }
+        },
+        "stack": {
+            "frame": [
+                {
+                    "ip": {
+                        "_text": "0x5CFB80F"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.local/bin/libexec/valgrind/vgpreload_memcheck-amd64-linux.so"
+                    },
+                    "fn": {
+                        "_text": "malloc"
+                    },
+                    "dir": {
+                        "_text": "/home/bruce/valgrind-3.21.0/coregrind/m_replacemalloc"
+                    },
+                    "file": {
+                        "_text": "vg_replace_malloc.c"
+                    },
+                    "line": {
+                        "_text": "431"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x610958E"
+                    },
+                    "obj": {
+                        "_text": "/usr/lib/x86_64-linux-gnu/libc.so.6"
+                    },
+                    "fn": {
+                        "_text": "strdup"
+                    },
+                    "dir": {
+                        "_text": "./string/./string"
+                    },
+                    "file": {
+                        "_text": "strdup.c"
+                    },
+                    "line": {
+                        "_text": "42"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x5D1A3A7"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/github/csi/code-events/prebuilds/linux-x64/node.abi115.node"
+                    },
+                    "fn": {
+                        "_text": "EventQueue::enqueue(v8::CodeEvent*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x12214E6"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::ExternalLogEventListener::CodeCreateEvent(v8::internal::LogEventListener::CodeTag, v8::internal::Handle<v8::internal::AbstractCode>, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Handle<v8::internal::Name>, int, int)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF7CE76"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Compiler::LogFunctionCompilation(v8::internal::Isolate*, v8::internal::LogEventListener::CodeTag, v8::internal::Handle<v8::internal::Script>, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Handle<v8::internal::FeedbackVector>, v8::internal::Handle<v8::internal::AbstractCode>, v8::internal::CodeKind, double)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF8197B"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::(anonymous namespace)::FinalizeUnoptimizedCompilation(v8::internal::Isolate*, v8::internal::Handle<v8::internal::Script>, v8::internal::UnoptimizedCompileFlags const&, v8::internal::UnoptimizedCompileState const*, std::vector<v8::internal::FinalizeUnoptimizedCompilationData, std::allocator<v8::internal::FinalizeUnoptimizedCompilationData> > const&)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF8AEAB"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Compiler::Compile(v8::internal::Isolate*, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Compiler::ClearExceptionFlag, v8::internal::IsCompiledScope*, v8::internal::CreateSourcePositions)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF8B2ED"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Compiler::Compile(v8::internal::Isolate*, v8::internal::Handle<v8::internal::JSFunction>, v8::internal::Compiler::ClearExceptionFlag, v8::internal::IsCompiledScope*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x14EDAB9"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Runtime_CompileLazy(int, unsigned long*, v8::internal::Isolate*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x1931EF5"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_CEntry_Return1_ArgvOnStack_NoBuiltinExit"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x18A5123"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_CompileLazy"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x18A3D1B"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_InterpreterEntryTrampoline"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "unique": {
+            "_text": "0x1b"
+        },
+        "tid": {
+            "_text": "1"
+        },
+        "kind": {
+            "_text": "Leak_IndirectlyLost"
+        },
+        "xwhat": {
+            "text": {
+                "_text": "90 bytes in 10 blocks are indirectly lost in loss record 28 of 65"
+            },
+            "leakedbytes": {
+                "_text": "90"
+            },
+            "leakedblocks": {
+                "_text": "10"
+            }
+        },
+        "stack": {
+            "frame": [
+                {
+                    "ip": {
+                        "_text": "0x5CFB80F"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.local/bin/libexec/valgrind/vgpreload_memcheck-amd64-linux.so"
+                    },
+                    "fn": {
+                        "_text": "malloc"
+                    },
+                    "dir": {
+                        "_text": "/home/bruce/valgrind-3.21.0/coregrind/m_replacemalloc"
+                    },
+                    "file": {
+                        "_text": "vg_replace_malloc.c"
+                    },
+                    "line": {
+                        "_text": "431"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x610958E"
+                    },
+                    "obj": {
+                        "_text": "/usr/lib/x86_64-linux-gnu/libc.so.6"
+                    },
+                    "fn": {
+                        "_text": "strdup"
+                    },
+                    "dir": {
+                        "_text": "./string/./string"
+                    },
+                    "file": {
+                        "_text": "strdup.c"
+                    },
+                    "line": {
+                        "_text": "42"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x5D1A1A8"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/github/csi/code-events/prebuilds/linux-x64/node.abi115.node"
+                    },
+                    "fn": {
+                        "_text": "EventQueue::enqueue(v8::CodeEvent*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x12214E6"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::ExternalLogEventListener::CodeCreateEvent(v8::internal::LogEventListener::CodeTag, v8::internal::Handle<v8::internal::AbstractCode>, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Handle<v8::internal::Name>, int, int)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF7CE76"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Compiler::LogFunctionCompilation(v8::internal::Isolate*, v8::internal::LogEventListener::CodeTag, v8::internal::Handle<v8::internal::Script>, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Handle<v8::internal::FeedbackVector>, v8::internal::Handle<v8::internal::AbstractCode>, v8::internal::CodeKind, double)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF7F8B0"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Compiler::CompileSharedWithBaseline(v8::internal::Isolate*, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Compiler::ClearExceptionFlag, v8::internal::IsCompiledScope*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF12071"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::baseline::BaselineBatchCompiler::CompileBatch(v8::internal::Handle<v8::internal::JSFunction>)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x1057833"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::TieringManager::OnInterruptTick(v8::internal::Handle<v8::internal::JSFunction>, v8::internal::CodeKind)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x14F74CF"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Runtime_BytecodeBudgetInterrupt_Ignition(int, unsigned long*, v8::internal::Isolate*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x1931EF5"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_CEntry_Return1_ArgvOnStack_NoBuiltinExit"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x19F51A3"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_ReturnHandler"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x18A3D1B"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_InterpreterEntryTrampoline"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "unique": {
+            "_text": "0x1c"
+        },
+        "tid": {
+            "_text": "1"
+        },
+        "kind": {
+            "_text": "Leak_IndirectlyLost"
+        },
+        "xwhat": {
+            "text": {
+                "_text": "94 bytes in 10 blocks are indirectly lost in loss record 29 of 65"
+            },
+            "leakedbytes": {
+                "_text": "94"
+            },
+            "leakedblocks": {
+                "_text": "10"
+            }
+        },
+        "stack": {
+            "frame": [
+                {
+                    "ip": {
+                        "_text": "0x5CFB80F"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.local/bin/libexec/valgrind/vgpreload_memcheck-amd64-linux.so"
+                    },
+                    "fn": {
+                        "_text": "malloc"
+                    },
+                    "dir": {
+                        "_text": "/home/bruce/valgrind-3.21.0/coregrind/m_replacemalloc"
+                    },
+                    "file": {
+                        "_text": "vg_replace_malloc.c"
+                    },
+                    "line": {
+                        "_text": "431"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x610958E"
+                    },
+                    "obj": {
+                        "_text": "/usr/lib/x86_64-linux-gnu/libc.so.6"
+                    },
+                    "fn": {
+                        "_text": "strdup"
+                    },
+                    "dir": {
+                        "_text": "./string/./string"
+                    },
+                    "file": {
+                        "_text": "strdup.c"
+                    },
+                    "line": {
+                        "_text": "42"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x5D1A3A7"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/github/csi/code-events/prebuilds/linux-x64/node.abi115.node"
+                    },
+                    "fn": {
+                        "_text": "EventQueue::enqueue(v8::CodeEvent*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x12214E6"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::ExternalLogEventListener::CodeCreateEvent(v8::internal::LogEventListener::CodeTag, v8::internal::Handle<v8::internal::AbstractCode>, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Handle<v8::internal::Name>, int, int)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF7CE76"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Compiler::LogFunctionCompilation(v8::internal::Isolate*, v8::internal::LogEventListener::CodeTag, v8::internal::Handle<v8::internal::Script>, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Handle<v8::internal::FeedbackVector>, v8::internal::Handle<v8::internal::AbstractCode>, v8::internal::CodeKind, double)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF7F8B0"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Compiler::CompileSharedWithBaseline(v8::internal::Isolate*, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Compiler::ClearExceptionFlag, v8::internal::IsCompiledScope*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF12071"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::baseline::BaselineBatchCompiler::CompileBatch(v8::internal::Handle<v8::internal::JSFunction>)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x1057833"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::TieringManager::OnInterruptTick(v8::internal::Handle<v8::internal::JSFunction>, v8::internal::CodeKind)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x14F74CF"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Runtime_BytecodeBudgetInterrupt_Ignition(int, unsigned long*, v8::internal::Isolate*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x1931EF5"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_CEntry_Return1_ArgvOnStack_NoBuiltinExit"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x19F51A3"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_ReturnHandler"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x18A3D1B"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_InterpreterEntryTrampoline"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "unique": {
+            "_text": "0x22"
+        },
+        "tid": {
+            "_text": "1"
+        },
+        "kind": {
+            "_text": "Leak_IndirectlyLost"
+        },
+        "xwhat": {
+            "text": {
+                "_text": "136 bytes in 2 blocks are indirectly lost in loss record 35 of 65"
+            },
+            "leakedbytes": {
+                "_text": "136"
+            },
+            "leakedblocks": {
+                "_text": "2"
+            }
+        },
+        "stack": {
+            "frame": [
+                {
+                    "ip": {
+                        "_text": "0x5CFB80F"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.local/bin/libexec/valgrind/vgpreload_memcheck-amd64-linux.so"
+                    },
+                    "fn": {
+                        "_text": "malloc"
+                    },
+                    "dir": {
+                        "_text": "/home/bruce/valgrind-3.21.0/coregrind/m_replacemalloc"
+                    },
+                    "file": {
+                        "_text": "vg_replace_malloc.c"
+                    },
+                    "line": {
+                        "_text": "431"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x610958E"
+                    },
+                    "obj": {
+                        "_text": "/usr/lib/x86_64-linux-gnu/libc.so.6"
+                    },
+                    "fn": {
+                        "_text": "strdup"
+                    },
+                    "dir": {
+                        "_text": "./string/./string"
+                    },
+                    "file": {
+                        "_text": "strdup.c"
+                    },
+                    "line": {
+                        "_text": "42"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x5D1A29B"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/github/csi/code-events/prebuilds/linux-x64/node.abi115.node"
+                    },
+                    "fn": {
+                        "_text": "EventQueue::enqueue(v8::CodeEvent*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x12214E6"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::ExternalLogEventListener::CodeCreateEvent(v8::internal::LogEventListener::CodeTag, v8::internal::Handle<v8::internal::AbstractCode>, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Handle<v8::internal::Name>, int, int)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF7CE76"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Compiler::LogFunctionCompilation(v8::internal::Isolate*, v8::internal::LogEventListener::CodeTag, v8::internal::Handle<v8::internal::Script>, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Handle<v8::internal::FeedbackVector>, v8::internal::Handle<v8::internal::AbstractCode>, v8::internal::CodeKind, double)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF7F8B0"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Compiler::CompileSharedWithBaseline(v8::internal::Isolate*, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Compiler::ClearExceptionFlag, v8::internal::IsCompiledScope*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF7FD4C"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Compiler::CompileBaseline(v8::internal::Isolate*, v8::internal::Handle<v8::internal::JSFunction>, v8::internal::Compiler::ClearExceptionFlag, v8::internal::IsCompiledScope*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF11FB7"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::baseline::BaselineBatchCompiler::CompileBatch(v8::internal::Handle<v8::internal::JSFunction>)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x1057833"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::TieringManager::OnInterruptTick(v8::internal::Handle<v8::internal::JSFunction>, v8::internal::CodeKind)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x14F74CF"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Runtime_BytecodeBudgetInterrupt_Ignition(int, unsigned long*, v8::internal::Isolate*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x1931EF5"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_CEntry_Return1_ArgvOnStack_NoBuiltinExit"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x19F51A3"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_ReturnHandler"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "unique": {
+            "_text": "0x2a"
+        },
+        "tid": {
+            "_text": "1"
+        },
+        "kind": {
+            "_text": "Leak_IndirectlyLost"
+        },
+        "xwhat": {
+            "text": {
+                "_text": "234 bytes in 8 blocks are indirectly lost in loss record 43 of 65"
+            },
+            "leakedbytes": {
+                "_text": "234"
+            },
+            "leakedblocks": {
+                "_text": "8"
+            }
+        },
+        "stack": {
+            "frame": [
+                {
+                    "ip": {
+                        "_text": "0x5CFB80F"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.local/bin/libexec/valgrind/vgpreload_memcheck-amd64-linux.so"
+                    },
+                    "fn": {
+                        "_text": "malloc"
+                    },
+                    "dir": {
+                        "_text": "/home/bruce/valgrind-3.21.0/coregrind/m_replacemalloc"
+                    },
+                    "file": {
+                        "_text": "vg_replace_malloc.c"
+                    },
+                    "line": {
+                        "_text": "431"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x610958E"
+                    },
+                    "obj": {
+                        "_text": "/usr/lib/x86_64-linux-gnu/libc.so.6"
+                    },
+                    "fn": {
+                        "_text": "strdup"
+                    },
+                    "dir": {
+                        "_text": "./string/./string"
+                    },
+                    "file": {
+                        "_text": "strdup.c"
+                    },
+                    "line": {
+                        "_text": "42"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x5D1A29B"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/github/csi/code-events/prebuilds/linux-x64/node.abi115.node"
+                    },
+                    "fn": {
+                        "_text": "EventQueue::enqueue(v8::CodeEvent*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x12214E6"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::ExternalLogEventListener::CodeCreateEvent(v8::internal::LogEventListener::CodeTag, v8::internal::Handle<v8::internal::AbstractCode>, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Handle<v8::internal::Name>, int, int)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF7CE76"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Compiler::LogFunctionCompilation(v8::internal::Isolate*, v8::internal::LogEventListener::CodeTag, v8::internal::Handle<v8::internal::Script>, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Handle<v8::internal::FeedbackVector>, v8::internal::Handle<v8::internal::AbstractCode>, v8::internal::CodeKind, double)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF8197B"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::(anonymous namespace)::FinalizeUnoptimizedCompilation(v8::internal::Isolate*, v8::internal::Handle<v8::internal::Script>, v8::internal::UnoptimizedCompileFlags const&, v8::internal::UnoptimizedCompileState const*, std::vector<v8::internal::FinalizeUnoptimizedCompilationData, std::allocator<v8::internal::FinalizeUnoptimizedCompilationData> > const&)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF8AEAB"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Compiler::Compile(v8::internal::Isolate*, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Compiler::ClearExceptionFlag, v8::internal::IsCompiledScope*, v8::internal::CreateSourcePositions)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF8B2ED"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Compiler::Compile(v8::internal::Isolate*, v8::internal::Handle<v8::internal::JSFunction>, v8::internal::Compiler::ClearExceptionFlag, v8::internal::IsCompiledScope*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x14EDAB9"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Runtime_CompileLazy(int, unsigned long*, v8::internal::Isolate*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x1931EF5"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_CEntry_Return1_ArgvOnStack_NoBuiltinExit"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x18A5123"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_CompileLazy"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x18A3D1B"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_InterpreterEntryTrampoline"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "unique": {
+            "_text": "0x2d"
+        },
+        "tid": {
+            "_text": "1"
+        },
+        "kind": {
+            "_text": "Leak_IndirectlyLost"
+        },
+        "xwhat": {
+            "text": {
+                "_text": "320 bytes in 8 blocks are indirectly lost in loss record 46 of 65"
+            },
+            "leakedbytes": {
+                "_text": "320"
+            },
+            "leakedblocks": {
+                "_text": "8"
+            }
+        },
+        "stack": {
+            "frame": [
+                {
+                    "ip": {
+                        "_text": "0x5CFBF95"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.local/bin/libexec/valgrind/vgpreload_memcheck-amd64-linux.so"
+                    },
+                    "fn": {
+                        "_text": "operator new(unsigned long)"
+                    },
+                    "dir": {
+                        "_text": "/home/bruce/valgrind-3.21.0/coregrind/m_replacemalloc"
+                    },
+                    "file": {
+                        "_text": "vg_replace_malloc.c"
+                    },
+                    "line": {
+                        "_text": "472"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x5D1A170"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/github/csi/code-events/prebuilds/linux-x64/node.abi115.node"
+                    },
+                    "fn": {
+                        "_text": "EventQueue::enqueue(v8::CodeEvent*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x12214E6"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::ExternalLogEventListener::CodeCreateEvent(v8::internal::LogEventListener::CodeTag, v8::internal::Handle<v8::internal::AbstractCode>, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Handle<v8::internal::Name>, int, int)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF7CE76"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Compiler::LogFunctionCompilation(v8::internal::Isolate*, v8::internal::LogEventListener::CodeTag, v8::internal::Handle<v8::internal::Script>, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Handle<v8::internal::FeedbackVector>, v8::internal::Handle<v8::internal::AbstractCode>, v8::internal::CodeKind, double)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF8197B"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::(anonymous namespace)::FinalizeUnoptimizedCompilation(v8::internal::Isolate*, v8::internal::Handle<v8::internal::Script>, v8::internal::UnoptimizedCompileFlags const&, v8::internal::UnoptimizedCompileState const*, std::vector<v8::internal::FinalizeUnoptimizedCompilationData, std::allocator<v8::internal::FinalizeUnoptimizedCompilationData> > const&)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF8AEAB"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Compiler::Compile(v8::internal::Isolate*, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Compiler::ClearExceptionFlag, v8::internal::IsCompiledScope*, v8::internal::CreateSourcePositions)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF8B2ED"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Compiler::Compile(v8::internal::Isolate*, v8::internal::Handle<v8::internal::JSFunction>, v8::internal::Compiler::ClearExceptionFlag, v8::internal::IsCompiledScope*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x14EDAB9"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Runtime_CompileLazy(int, unsigned long*, v8::internal::Isolate*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x1931EF5"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_CEntry_Return1_ArgvOnStack_NoBuiltinExit"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x18A5123"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_CompileLazy"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x18A3D1B"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_InterpreterEntryTrampoline"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x18A3D1B"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_InterpreterEntryTrampoline"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "unique": {
+            "_text": "0x2e"
+        },
+        "tid": {
+            "_text": "1"
+        },
+        "kind": {
+            "_text": "Leak_IndirectlyLost"
+        },
+        "xwhat": {
+            "text": {
+                "_text": "400 bytes in 10 blocks are indirectly lost in loss record 47 of 65"
+            },
+            "leakedbytes": {
+                "_text": "400"
+            },
+            "leakedblocks": {
+                "_text": "10"
+            }
+        },
+        "stack": {
+            "frame": [
+                {
+                    "ip": {
+                        "_text": "0x5CFBF95"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.local/bin/libexec/valgrind/vgpreload_memcheck-amd64-linux.so"
+                    },
+                    "fn": {
+                        "_text": "operator new(unsigned long)"
+                    },
+                    "dir": {
+                        "_text": "/home/bruce/valgrind-3.21.0/coregrind/m_replacemalloc"
+                    },
+                    "file": {
+                        "_text": "vg_replace_malloc.c"
+                    },
+                    "line": {
+                        "_text": "472"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x5D1A170"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/github/csi/code-events/prebuilds/linux-x64/node.abi115.node"
+                    },
+                    "fn": {
+                        "_text": "EventQueue::enqueue(v8::CodeEvent*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x12214E6"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::ExternalLogEventListener::CodeCreateEvent(v8::internal::LogEventListener::CodeTag, v8::internal::Handle<v8::internal::AbstractCode>, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Handle<v8::internal::Name>, int, int)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF7CE76"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Compiler::LogFunctionCompilation(v8::internal::Isolate*, v8::internal::LogEventListener::CodeTag, v8::internal::Handle<v8::internal::Script>, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Handle<v8::internal::FeedbackVector>, v8::internal::Handle<v8::internal::AbstractCode>, v8::internal::CodeKind, double)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF7F8B0"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Compiler::CompileSharedWithBaseline(v8::internal::Isolate*, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Compiler::ClearExceptionFlag, v8::internal::IsCompiledScope*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF12071"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::baseline::BaselineBatchCompiler::CompileBatch(v8::internal::Handle<v8::internal::JSFunction>)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x1057833"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::TieringManager::OnInterruptTick(v8::internal::Handle<v8::internal::JSFunction>, v8::internal::CodeKind)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x14F74CF"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Runtime_BytecodeBudgetInterrupt_Ignition(int, unsigned long*, v8::internal::Isolate*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x1931EF5"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_CEntry_Return1_ArgvOnStack_NoBuiltinExit"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x19F51A3"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_ReturnHandler"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x18A3D1B"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_InterpreterEntryTrampoline"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x18A3D1B"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_InterpreterEntryTrampoline"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "unique": {
+            "_text": "0x32"
+        },
+        "tid": {
+            "_text": "1"
+        },
+        "kind": {
+            "_text": "Leak_IndirectlyLost"
+        },
+        "xwhat": {
+            "text": {
+                "_text": "518 bytes in 10 blocks are indirectly lost in loss record 51 of 65"
+            },
+            "leakedbytes": {
+                "_text": "518"
+            },
+            "leakedblocks": {
+                "_text": "10"
+            }
+        },
+        "stack": {
+            "frame": [
+                {
+                    "ip": {
+                        "_text": "0x5CFB80F"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.local/bin/libexec/valgrind/vgpreload_memcheck-amd64-linux.so"
+                    },
+                    "fn": {
+                        "_text": "malloc"
+                    },
+                    "dir": {
+                        "_text": "/home/bruce/valgrind-3.21.0/coregrind/m_replacemalloc"
+                    },
+                    "file": {
+                        "_text": "vg_replace_malloc.c"
+                    },
+                    "line": {
+                        "_text": "431"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x610958E"
+                    },
+                    "obj": {
+                        "_text": "/usr/lib/x86_64-linux-gnu/libc.so.6"
+                    },
+                    "fn": {
+                        "_text": "strdup"
+                    },
+                    "dir": {
+                        "_text": "./string/./string"
+                    },
+                    "file": {
+                        "_text": "strdup.c"
+                    },
+                    "line": {
+                        "_text": "42"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x5D1A29B"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/github/csi/code-events/prebuilds/linux-x64/node.abi115.node"
+                    },
+                    "fn": {
+                        "_text": "EventQueue::enqueue(v8::CodeEvent*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x12214E6"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::ExternalLogEventListener::CodeCreateEvent(v8::internal::LogEventListener::CodeTag, v8::internal::Handle<v8::internal::AbstractCode>, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Handle<v8::internal::Name>, int, int)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF7CE76"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Compiler::LogFunctionCompilation(v8::internal::Isolate*, v8::internal::LogEventListener::CodeTag, v8::internal::Handle<v8::internal::Script>, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Handle<v8::internal::FeedbackVector>, v8::internal::Handle<v8::internal::AbstractCode>, v8::internal::CodeKind, double)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF7F8B0"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Compiler::CompileSharedWithBaseline(v8::internal::Isolate*, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Compiler::ClearExceptionFlag, v8::internal::IsCompiledScope*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF12071"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::baseline::BaselineBatchCompiler::CompileBatch(v8::internal::Handle<v8::internal::JSFunction>)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x1057833"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::TieringManager::OnInterruptTick(v8::internal::Handle<v8::internal::JSFunction>, v8::internal::CodeKind)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x14F74CF"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Runtime_BytecodeBudgetInterrupt_Ignition(int, unsigned long*, v8::internal::Isolate*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x1931EF5"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_CEntry_Return1_ArgvOnStack_NoBuiltinExit"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x19F51A3"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_ReturnHandler"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x18A3D1B"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_InterpreterEntryTrampoline"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "unique": {
+            "_text": "0x34"
+        },
+        "tid": {
+            "_text": "1"
+        },
+        "kind": {
+            "_text": "Leak_DefinitelyLost"
+        },
+        "xwhat": {
+            "text": {
+                "_text": "594 (80 direct, 514 indirect) bytes in 1 blocks are definitely lost in loss record 53 of 65"
+            },
+            "leakedbytes": {
+                "_text": "594"
+            },
+            "leakedblocks": {
+                "_text": "1"
+            }
+        },
+        "stack": {
+            "frame": [
+                {
+                    "ip": {
+                        "_text": "0x5CFBF95"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.local/bin/libexec/valgrind/vgpreload_memcheck-amd64-linux.so"
+                    },
+                    "fn": {
+                        "_text": "operator new(unsigned long)"
+                    },
+                    "dir": {
+                        "_text": "/home/bruce/valgrind-3.21.0/coregrind/m_replacemalloc"
+                    },
+                    "file": {
+                        "_text": "vg_replace_malloc.c"
+                    },
+                    "line": {
+                        "_text": "472"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x5D19B01"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/github/csi/code-events/prebuilds/linux-x64/node.abi115.node"
+                    },
+                    "fn": {
+                        "_text": "CsiCodeEventHandler::New(v8::Isolate*, v8::Local<v8::Object>)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x5D19760"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/github/csi/code-events/prebuilds/linux-x64/node.abi115.node"
+                    },
+                    "fn": {
+                        "_text": "node_register_module_v115"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xC5F80B"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "std::_Function_handler<bool (node::binding::DLib*), node::binding::DLOpen(v8::FunctionCallbackInfo<v8::Value> const&)::{lambda(node::binding::DLib*)#1}>::_M_invoke(std::_Any_data const&, node::binding::DLib*&&)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xC11D0D"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "node::Environment::TryLoadAddon(char const*, int, std::function<bool (node::binding::DLib*)> const&)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xC5EB48"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "node::binding::DLOpen(v8::FunctionCallbackInfo<v8::Value> const&)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF26DEE"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::FunctionCallbackArguments::Call(v8::internal::CallHandlerInfo)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF2765C"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::MaybeHandle<v8::internal::Object> v8::internal::(anonymous namespace)::HandleApiCallHelper<false>(v8::internal::Isolate*, v8::internal::Handle<v8::internal::HeapObject>, v8::internal::Handle<v8::internal::FunctionTemplateInfo>, v8::internal::Handle<v8::internal::Object>, unsigned long*, int)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF27B24"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Builtin_HandleApiCall(int, unsigned long*, v8::internal::Isolate*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x1931DF5"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_CEntry_Return1_ArgvOnStack_BuiltinExit"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x18A3D1B"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_InterpreterEntryTrampoline"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x18A3D1B"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_InterpreterEntryTrampoline"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "unique": {
+            "_text": "0x39"
+        },
+        "tid": {
+            "_text": "1"
+        },
+        "kind": {
+            "_text": "Leak_DefinitelyLost"
+        },
+        "xwhat": {
+            "text": {
+                "_text": "1,688 (80 direct, 1,608 indirect) bytes in 1 blocks are definitely lost in loss record 58 of 65"
+            },
+            "leakedbytes": {
+                "_text": "1688"
+            },
+            "leakedblocks": {
+                "_text": "1"
+            }
+        },
+        "stack": {
+            "frame": [
+                {
+                    "ip": {
+                        "_text": "0x5CFBF95"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.local/bin/libexec/valgrind/vgpreload_memcheck-amd64-linux.so"
+                    },
+                    "fn": {
+                        "_text": "operator new(unsigned long)"
+                    },
+                    "dir": {
+                        "_text": "/home/bruce/valgrind-3.21.0/coregrind/m_replacemalloc"
+                    },
+                    "file": {
+                        "_text": "vg_replace_malloc.c"
+                    },
+                    "line": {
+                        "_text": "472"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x5D19B01"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/github/csi/code-events/prebuilds/linux-x64/node.abi115.node"
+                    },
+                    "fn": {
+                        "_text": "CsiCodeEventHandler::New(v8::Isolate*, v8::Local<v8::Object>)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x5D19760"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/github/csi/code-events/prebuilds/linux-x64/node.abi115.node"
+                    },
+                    "fn": {
+                        "_text": "node_register_module_v115"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xC5F66A"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "std::_Function_handler<bool (node::binding::DLib*), node::binding::DLOpen(v8::FunctionCallbackInfo<v8::Value> const&)::{lambda(node::binding::DLib*)#1}>::_M_invoke(std::_Any_data const&, node::binding::DLib*&&)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xC11D0D"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "node::Environment::TryLoadAddon(char const*, int, std::function<bool (node::binding::DLib*)> const&)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xC5EB48"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "node::binding::DLOpen(v8::FunctionCallbackInfo<v8::Value> const&)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF26DEE"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::FunctionCallbackArguments::Call(v8::internal::CallHandlerInfo)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF2765C"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::MaybeHandle<v8::internal::Object> v8::internal::(anonymous namespace)::HandleApiCallHelper<false>(v8::internal::Isolate*, v8::internal::Handle<v8::internal::HeapObject>, v8::internal::Handle<v8::internal::FunctionTemplateInfo>, v8::internal::Handle<v8::internal::Object>, unsigned long*, int)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0xF27B24"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "v8::internal::Builtin_HandleApiCall(int, unsigned long*, v8::internal::Isolate*)"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x1931DF5"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_CEntry_Return1_ArgvOnStack_BuiltinExit"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x18A3D1B"
+                    },
+                    "obj": {
+                        "_text": "/home/bruce/.nvm/versions/node/v20.8.1/bin/node"
+                    },
+                    "fn": {
+                        "_text": "Builtins_InterpreterEntryTrampoline"
+                    }
+                },
+                {
+                    "ip": {
+                        "_text": "0x8F6C30B"
+                    }
+                }
+            ]
+        }
+    }
+]
