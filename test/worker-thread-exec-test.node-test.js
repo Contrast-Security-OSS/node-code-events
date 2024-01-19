@@ -7,7 +7,7 @@ const { Worker } = require('node:worker_threads');
 
 describe('worker_thread executing tests', function() {
 
-  it('executes index-include.node-test.js in a thread', { timeout: 60_000 }, function(t, done) {
+  it('executes index-include.node-test.js in a thread', { timeout: 60000 }, function(t, done) {
     const worker = new Worker('./test/index-include.node-test.js', {});
 
     worker.on('error', done);
@@ -18,7 +18,7 @@ describe('worker_thread executing tests', function() {
     });
   });
 
-  it('executes index-exclude.node-test.js in a thread', { timeout: 60_000 }, function(t, done) {
+  it('executes index-exclude.node-test.js in a thread', { timeout: 60000 }, function(t, done) {
     const worker = new Worker('./test/index-exclude.node-test.js', {});
 
     worker.on('error', done);

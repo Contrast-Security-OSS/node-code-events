@@ -84,7 +84,7 @@ private:
             uint32_t lose_count = info[0].As<Napi::Number>().Int32Value();
             void *m;
             while (lose_count-- > 0) {
-                m = malloc(1000);
+                m = malloc(1024);
             }
         }
         return info.Env().Undefined();

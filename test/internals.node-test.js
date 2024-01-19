@@ -2,13 +2,13 @@
 'use strict';
 
 // this really could/should be a non-node test, but the way mocha combines
-// tests means the test does not run in a clean environment.
+// tests means the test does not run with a clean instance of code-events.
 
 const { describe, it } = require('node:test');
 const { expect } = require('chai');
 
 const ce = require('..');
-const { setCodeEventListener, stopListening } = ce;
+const { setCodeEventListener } = ce;
 
 const listenerOptions = {
   interval: 100,
@@ -43,18 +43,22 @@ function aggregator(event) {
 
 describe('get C++ sizes', function() {
   it('should get the size of the CodeEvents instance', function() {
+    // @ts-ignore
     expect(ce.size(CE_INSTANCE)).equal(88);
   });
 
-  it ('should get the size of CodeEvent\'s EventQueue instance', function() {
+  it('should get the size of CodeEvent\'s EventQueue instance', function() {
+    // @ts-ignore
     expect(ce.size(CE_EVENT_QUEUE_INSTANCE)).equal(24);
   });
 
   it('should get the bytes in the CodeEvent\'s EventQueue', function() {
+    // @ts-ignore
     expect(ce.size(CE_EVENT_QUEUE_BYTES)).equal(0);
   });
 
   it('should get stats', function() {
+    // @ts-ignore
     const stats = ce.stats();
     expect(stats).property('total', 0);
     expect(stats).property('not_function', 0);
@@ -68,6 +72,8 @@ describe('get C++ sizes', function() {
   });
 
   it('should get new stats', function() {
+    /* eslint-disable newline-per-chained-call */
+    // @ts-ignore
     const stats = ce.stats();
     expect(stats).property('total').above(0);
     expect(stats).property('not_function').above(0);
@@ -84,8 +90,10 @@ describe('get C++ sizes', function() {
   it('should see items in the queue that have not been seen yet', function(t, done) {
     // in theory, could be 0 if the queue is processed immediately before
     // this test, so take two samples.
+    // @ts-ignore
     const length1 = ce.size(CE_CURRENT_QUEUE_LENGTH);
     setTimeout(() => {
+      // @ts-ignore
       const length2 = ce.size(CE_CURRENT_QUEUE_LENGTH);
       expect(length1 + length2).not.equal(0);
       done();

@@ -1,1 +1,3 @@
-const codeEvents = require('..');
+'use strict';
+
+require('..');

@@ -35,7 +35,6 @@
     "node": ">=14.15"
   },
   "dependencies": {
-    "node-addon-api": "^6.1.0",
     "node-gyp-build": "^4.6.0"
   },
   "devDependencies": {
@@ -49,6 +48,7 @@
     "lint-staged": "^13.2.3",
     "mocha": "^10.2.0",
     "nan": "^2.18.0",
+    "node-addon-api": "^7.1.0",
     "node-gyp": "^9.4.1",
     "prebuildify": "^5.0.1",
     "prebuildify-cross": "^5.0.0",

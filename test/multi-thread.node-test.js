@@ -4,18 +4,6 @@
 const { describe, it } = require('node:test');
 const assert = require('node:assert');
 
-const listenerOptions = {
-  interval: 100,
-  exclude_node: false,
-  exclude_non_function: false
-};
-
-const nodeVersion = +process.versions.node.split('.')[0];
-const nodeModulePrefix = nodeVersion >= 16 ? 'node:' : 'internal/';
-
-let lastTotalEvents = 0;
-let lastTotalTime = 0n; // eslint-disable-line
-
 const timeout = process.platform === 'win32' ? 60000 : 10000;
 const options = { timeout };
 

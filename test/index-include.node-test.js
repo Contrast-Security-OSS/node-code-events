@@ -1,11 +1,12 @@
 // @ts-check
 'use strict';
 
-const { describe, it, before, beforeEach, afterEach, after } = require('node:test');
+const { describe, it, before, afterEach, after } = require('node:test');
 const { expect } = require('chai');
 
 const codeEvents = require('..');
-const { setCodeEventListener, stopListening, size, getEvent } = codeEvents;
+// @ts-ignore
+const { setCodeEventListener, stopListening, size, stats, getEvent } = codeEvents; // eslint-disable-line
 
 const listenerOptions = {
   interval: 100,
@@ -69,7 +70,9 @@ describe('setCodeEventListener', { timeout }, function () {
   });
 
   afterEach(function() {
+    // @ts-ignore
     lastTotalEvents = codeEvents.totalEvents;
+    // @ts-ignore
     lastTotalTime = codeEvents.totalTime;
   });
 
@@ -78,8 +81,9 @@ describe('setCodeEventListener', { timeout }, function () {
     events.length = 0;
     // wait for them all to be done before reporting what remains.
     setTimeout(() => {
+      // @ts-ignore
       console.log('remaining size', size(), 'totalEvents', codeEvents.totalEvents);
-    }, 2000)
+    }, 2000);
   });
 
   it('reports simple LazyCompile events', async function () {
@@ -98,6 +102,7 @@ describe('setCodeEventListener', { timeout }, function () {
       script: __filename,
       type
     }));
+    // @ts-ignore
     expect(codeEvents.totalEvents).above(500);
 
     // only seen when not excluded
@@ -116,6 +121,7 @@ describe('setCodeEventListener', { timeout }, function () {
       script: __filename,
       type
     }));
+    // @ts-ignore
     expect(codeEvents.totalEvents - lastTotalEvents).above(5);
   });
 
@@ -146,6 +152,7 @@ describe('setCodeEventListener', { timeout }, function () {
       script: __filename,
       type
     }));
+    // @ts-ignore
     expect(codeEvents.totalEvents - lastTotalEvents).above(0);
 
     const event2 = await waitForLazyCompile('bar');
@@ -170,6 +177,7 @@ describe('setCodeEventListener', { timeout }, function () {
       script: __filename,
       type
     }));
+    // @ts-ignore
     expect(codeEvents.totalEvents - lastTotalEvents).above(0);
 
     // setTimeout isn't exact but it should never been 10ms below the timeout
@@ -198,6 +206,12 @@ describe('setCodeEventListener', { timeout }, function () {
 
   it('can stop listening when not listening', function () {
     stopListening();
+    //console.log(stats());
+    //console.log('size of queue', size(3));
+
+    // eat the events in the queue.
+    while (getEvent()) { } // eslint-disable-line
+    expect(size(3)).equal(0);
   });
 });
 

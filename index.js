@@ -38,7 +38,7 @@ const codeEvents = {
       }
       module.exports.totalEvents += i;
       module.exports.totalTime += process.hrtime.bigint() - start;
-    };
+    }
 
     // get any outstanding events immediately
     getEvents();
@@ -75,7 +75,7 @@ Object.defineProperties(codeEvents, {
     enumerable: false,
     writable: true,
     value: 0n,
-   },
+  },
   noop: {
     enumerable: false,
     value: binding.noop,

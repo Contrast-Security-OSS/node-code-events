@@ -26,11 +26,7 @@ class CodeEventHandler : public v8::CodeEventHandler {
 public:
   explicit CodeEventHandler(v8::Isolate *isolate);
   ~CodeEventHandler();
-  // static v8::Local<v8::Value> New(v8::Isolate *isolate, v8::Local<v8::Object>
-  // exports);
   void Handle(v8::CodeEvent *event);
-  // EventNode *dequeue();
-  // unsigned int eventCount();
   void enable(uint64_t bits);
   void disable();
   Napi::Value getEvent(Napi::Env env);
