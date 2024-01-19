@@ -2,16 +2,17 @@
 'use strict';
 
 const assert = require('node:assert/strict');
-const { describe, it, before, beforeEach, afterEach, after } = require('node:test');
+const { describe, it, before, afterEach, after } = require('node:test');
 
 const codeEvents = require('../index.js');
+// @ts-ignore
 const { setCodeEventListener, stopListening, size, getEvent } = codeEvents;
 
 // the excludes are the defaults, but we want to document it here.
 const listenerOptions = {
   interval: 100,
-  exclude_node: true,
-  exclude_non_function: true,
+  excludeNode: true,
+  excludeNonFunction: true,
 };
 
 let lastTotalEvents = 0;
@@ -23,8 +24,9 @@ describe('setCodeEventListener reports function events', { timeout }, function (
 
   let waitForLazyCompile;
   let handler;
-  let events = [];
+  const events = [];
 
+  // @ts-ignore
   before(function (t, done) {
     let eventIndex = 0;
 
@@ -61,7 +63,9 @@ describe('setCodeEventListener reports function events', { timeout }, function (
   });
 
   afterEach(function() {
+    // @ts-ignore
     lastTotalEvents = codeEvents.totalEvents;
+    // @ts-ignore
     lastTotalTime = codeEvents.totalTime;
   });
 
@@ -74,8 +78,9 @@ describe('setCodeEventListener reports function events', { timeout }, function (
       const eqSize = size(2); // bytes in EventQueue object
       const eqBytes = size(3); // bytes in EventQueue's queue
       const eqLength = size(4); // number of items in EventQueue's queue
+      // @ts-ignore
       console.log('ceSize', ceSize, 'eqSize', eqSize, 'eqBytes', eqBytes, 'eqLength', eqLength, 'totalEvents', codeEvents.totalEvents);
-    }, 2000)
+    }, 2000);
   });
 
   it('reports simple function', async function () {
@@ -94,6 +99,7 @@ describe('setCodeEventListener reports function events', { timeout }, function (
       script: __filename,
       //type
     });
+    // @ts-ignore
     assert(codeEvents.totalEvents > 0, 'no events reported');
   });
 
@@ -109,6 +115,7 @@ describe('setCodeEventListener reports function events', { timeout }, function (
       script: __filename,
       //type
     });
+    // @ts-ignore
     assert(codeEvents.totalEvents - lastTotalEvents, 'no events reported');
   });
 
@@ -139,6 +146,7 @@ describe('setCodeEventListener reports function events', { timeout }, function (
       script: __filename,
       //type
     });
+    // @ts-ignore
     assert(codeEvents.totalEvents - lastTotalEvents > 0, 'totalEvent expected > 0');
 
     const event2 = await waitForLazyCompile('bar');
@@ -163,6 +171,7 @@ describe('setCodeEventListener reports function events', { timeout }, function (
       script: __filename,
       //type
     });
+    // @ts-ignore
     assert(codeEvents.totalEvents - lastTotalEvents > 0, 'totalEvent expected > 0');
 
     // setTimeout isn't exact but it should never been 10ms below the timeout
@@ -180,7 +189,7 @@ describe('setCodeEventListener reports function events', { timeout }, function (
     testfunc4();
 
     const event = await waitForLazyCompile('testfunc4');
-    assert(newListenerCalled, 'new listener not called')
+    assert(newListenerCalled, 'new listener not called');
     assert.deepEqual(event, {
       func: 'testfunc4',
       lineNumber,
@@ -198,6 +207,7 @@ describe('setCodeEventListener reports function events', { timeout }, function (
     require('./resources/functions-3.js');
   });
 
+  // @ts-ignore
   it('can stop listening when not listening', function (t, done) {
     setTimeout(() => {
       let n = 0;
@@ -205,6 +215,7 @@ describe('setCodeEventListener reports function events', { timeout }, function (
         n += 1;
       }
       // it's fiddling with the internals, but it's a test.
+      // @ts-ignore
       codeEvents.totalEvents += n;
       stopListening();
       done();

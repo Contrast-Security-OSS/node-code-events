@@ -2,7 +2,7 @@
 #include <napi.h>
 #include <node_version.h>
 
-#include "CodeEventHandler.hpp"
+#include "code-event-handler.hpp"
 
 using Napi::Addon;
 using Napi::CallbackInfo;

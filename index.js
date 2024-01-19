@@ -13,7 +13,7 @@ const codeEvents = {
    * starts a timer which polls for an available code event once every `interval` value.
    *
    * @param {Function} cb callback function to process code events
-   * @param {object} {interval:100, exclude_node:false, array:false} polling interval in ms
+   * @param {object} {interval:100, excludeNode:false, array:false} polling interval in ms
    */
   setCodeEventListener(cb, options = {}) {
     if (codeEventsInited) {
@@ -21,8 +21,8 @@ const codeEvents = {
       return;
     }
 
-    const { interval = 100, exclude_node = true, exclude_non_function = true } = options;
-    const bits = (exclude_node ? 1 : 0) | (exclude_non_function ? 2 : 0);
+    const { interval = 100, excludeNode = true, excludeNonFunction = true } = options;
+    const bits = (excludeNode ? 1 : 0) | (excludeNonFunction ? 2 : 0);
 
     const active = binding.start(bits);
     codeEventsInited = true;

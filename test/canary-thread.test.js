@@ -4,10 +4,6 @@
 const { Worker } = require('worker_threads');
 const assert = require('node:assert');
 
-const codeEvents = require('..');
-const { setCodeEventListener, stopListening } = codeEvents;
-
-
 describe('canary worker_thread test', function() {
   it('require in a worker thread succeeds after require in main thread', async function() {
     this.timeout(30000);
@@ -31,7 +27,7 @@ describe('canary worker_thread test', function() {
         assert.equal(exitCode, 0, `unexpected exit code ${exitCode}`);
         resolve();
       });
-    })
+    });
   });
 
   it('handles multiple worker threads', async function() {

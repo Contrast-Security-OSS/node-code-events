@@ -10,14 +10,14 @@ const { setCodeEventListener, stopListening, size, stats, getEvent } = codeEvent
 
 const listenerOptions = {
   interval: 100,
-  exclude_node: false,
-  exclude_non_function: false,
+  excludeNode: false,
+  excludeNonFunction: false,
 };
 
 const nodeVersion = +process.versions.node.split('.')[0];
 const nodeModulePrefix = nodeVersion >= 16 ? 'node:' : 'internal/';
 let type = null;
-if (!listenerOptions.exclude_non_functions) {
+if (!listenerOptions.excludeNonFunctions) {
   type = nodeVersion >= 20 ? 'Function' : 'LazyCompile';
 }
 

@@ -12,8 +12,8 @@ const { setCodeEventListener } = ce;
 
 const listenerOptions = {
   interval: 100,
-  exclude_node: false,
-  exclude_non_function: false
+  excludeNode: false,
+  excludeNonFunction: false
 };
 
 const CE_INSTANCE = 1;

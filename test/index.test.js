@@ -8,15 +8,15 @@ const { setCodeEventListener, stopListening } = codeEvents;
 
 const listenerOptions = {
   interval: 100,
-  exclude_node: false,
-  exclude_non_function: false,
+  excludeNode: false,
+  excludeNonFunction: false,
 };
 
 const nodeVersion = +process.versions.node.split('.')[0];
 const nodeModulePrefix = nodeVersion >= 16 ? 'node:' : 'internal/';
 
 let type = null;
-if (!listenerOptions.exclude_non_functions) {
+if (!listenerOptions.excludeNonFunction) {
   type = nodeVersion >= 20 ? 'Function' : 'LazyCompile';
 }
 
@@ -37,7 +37,7 @@ describe('setCodeEventListener', function () {
     let eventIndex = 0;
 
     waitForLazyCompile = (name) =>
-      new Promise((resolve) => { const peIx = eventIndex; // eslint-disable-line
+      new Promise((resolve) => {
         const _interval = setInterval(() => {
           for (let i = eventIndex; i < events.length; i++, eventIndex++) {
             if (events[i].script.startsWith(nodeModulePrefix)) {
@@ -45,7 +45,7 @@ describe('setCodeEventListener', function () {
             }
             if (events[i].func === name) {
               clearInterval(_interval);
-              resolve(events[i]); false && console.log('n', eventIndex - peIx);
+              resolve(events[i]);
               return;
             }
           }
@@ -72,7 +72,9 @@ describe('setCodeEventListener', function () {
   });
 
   afterEach(function() {
+    // @ts-ignore
     lastTotalEvents = codeEvents.totalEvents;
+    // @ts-ignore
     lastTotalTime = codeEvents.totalTime;
   });
 
@@ -96,6 +98,7 @@ describe('setCodeEventListener', function () {
       script: __filename,
       type
     }));
+    // @ts-ignore
     expect(codeEvents.totalEvents).above(500);
 
     // only seen when not excluded
@@ -114,6 +117,7 @@ describe('setCodeEventListener', function () {
       script: __filename,
       type
     }));
+    // @ts-ignore
     expect(codeEvents.totalEvents - lastTotalEvents).above(5);
   });
 
@@ -144,6 +148,7 @@ describe('setCodeEventListener', function () {
       script: __filename,
       type
     }));
+    // @ts-ignore
     expect(codeEvents.totalEvents - lastTotalEvents).above(0);
 
     const event2 = await waitForLazyCompile('bar');
@@ -168,6 +173,7 @@ describe('setCodeEventListener', function () {
       script: __filename,
       type
     }));
+    // @ts-ignore
     expect(codeEvents.totalEvents - lastTotalEvents).above(0);
 
     // setTimeout isn't exact but it should never been 10ms below the timeout
