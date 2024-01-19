@@ -5,6 +5,12 @@
 # a valgrind.xml file that is parsed to determine if there are any leaks.
 #
 # this script is intended to be run from the root of the project.
+#
+# spawned-test.node-test.js is not used. It was an attempt to spawn a process to
+# verify that memory was freed when the process terminated. It didn't work because
+# valgrind writes a bad xml file. I think it is also not relevant because it's not
+# running in the same address space, so of course the memory will be free when the
+# process terminates.
 
 VALGRIND_CMD="valgrind --xml=yes --xml-file=./valgrind.xml --trace-children=yes --leak-check=full --show-leak-kinds=all"
 RED='\033[0;31m'
