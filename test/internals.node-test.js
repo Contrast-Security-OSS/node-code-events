@@ -87,17 +87,21 @@ describe('get C++ sizes', function() {
     expect(stats.total_node_scripts).greaterThanOrEqual(types.node);
   });
 
-  it('should see items in the queue that have not been seen yet', function(t, done) {
+  it('should see items in the queue that have not been seen yet', function() {
     // in theory, could be 0 if the queue is processed immediately before
     // this test, so take two samples.
+    let resolve;
+    // eslint-disable-next-line brace-style
+    const p = new Promise((r) => { resolve = r; });
     // @ts-ignore
     const length1 = ce.size(CE_CURRENT_QUEUE_LENGTH);
     setTimeout(() => {
       // @ts-ignore
       const length2 = ce.size(CE_CURRENT_QUEUE_LENGTH);
       expect(length1 + length2).not.equal(0);
-      done();
+      resolve();
     }, 25);
+    return p;
   });
 
   // add some tests that don't use the timer but use getEvent() directly.

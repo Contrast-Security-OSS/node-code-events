@@ -27,7 +27,7 @@ describe('setCodeEventListener reports function events', { timeout }, function (
   const events = [];
 
   // @ts-ignore
-  before(function (t, done) {
+  before(function () {
     let eventIndex = 0;
 
     waitForLazyCompile = (name) =>
@@ -55,11 +55,12 @@ describe('setCodeEventListener reports function events', { timeout }, function (
 
     // in CI it takes a long time for windows to get through the initial burst
     // of available code events
+    let p = Promise.resolve();
     if (process.platform === 'win32') {
-      setTimeout(done, timeout - 2000);
-    } else {
-      done();
+      p = new Promise((resolve) => setTimeout(resolve, timeout - 2000));
     }
+
+    return p;
   });
 
   afterEach(function() {
@@ -208,17 +209,19 @@ describe('setCodeEventListener reports function events', { timeout }, function (
   });
 
   // @ts-ignore
-  it('can stop listening when not listening', function (t, done) {
-    setTimeout(() => {
-      let n = 0;
-      while (getEvent()) {
-        n += 1;
-      }
-      // it's fiddling with the internals, but it's a test.
-      // @ts-ignore
-      codeEvents.totalEvents += n;
-      stopListening();
-      done();
+  it('can stop listening when not listening', async function() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        let n = 0;
+        while (getEvent()) {
+          n += 1;
+        }
+        // it's fiddling with the internals, but it's a test.
+        // @ts-ignore
+        codeEvents.totalEvents += n;
+        stopListening();
+        resolve();
+      });
     });
   });
 });

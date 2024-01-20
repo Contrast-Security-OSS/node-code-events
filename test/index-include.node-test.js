@@ -25,13 +25,14 @@ let lastTotalEvents = 0;
 let lastTotalTime = 0n; // eslint-disable-line
 
 const timeout = process.platform === 'win32' ? 60000 : 10000;
+
 describe('setCodeEventListener', { timeout }, function () {
   let waitForLazyCompile;
   let handler;
   let nodeColonSeen = false;
   const events = [];
 
-  before(function (t, done) {
+  before(async function () {
     let eventIndex = 0;
 
     waitForLazyCompile = (name) =>
@@ -62,11 +63,14 @@ describe('setCodeEventListener', { timeout }, function () {
 
     // in CI it takes a long time for windows to get through the initial burst
     // of available code events
+    // in CI it takes a long time for windows to get through the initial burst
+    // of available code events
+    let p = Promise.resolve();
     if (process.platform === 'win32') {
-      setTimeout(done, timeout - 1000);
-    } else {
-      done();
+      p = new Promise((resolve) => setTimeout(resolve, timeout - 2000));
     }
+
+    return p;
   });
 
   afterEach(function() {
