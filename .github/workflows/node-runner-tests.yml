@@ -59,9 +59,11 @@ jobs:
         run: node test/multi-thread.node-test.js
       - name: node:test worker-thread-exec-test
         run: node test/worker-thread-exec-test.node-test.js
-      # now can run the leak checks
-      - name: execute-leak-suite
-        run: ./scripts/execute-leak-suite.sh
-      # finally, verify the internals
       - name: node:test internals
         run: node test/internals.node-test.js
+      # finally, run the leak checks, but only on ubuntu
+      - name: run node:test leak-check
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          apt install -y valgrind
+          node test/leak-check.node-test.js
