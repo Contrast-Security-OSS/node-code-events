@@ -69,4 +69,4 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
         run: |
           sudo apt install -y valgrind
-          node test/leak-check.node-test.js
+          ./test/execute-leak-checks.sh
