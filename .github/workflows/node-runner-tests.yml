@@ -69,4 +69,4 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
         run: |
           sudo apt install -y valgrind
-          ./test/execute-leak-checks.sh
+          ./scripts/execute-leak-suite.sh
