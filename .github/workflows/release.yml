@@ -34,7 +34,7 @@ jobs:
       - name: Set up node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 20
           architecture: x64
       # new versions of python don't include distutils. setuptools provides it.
       - name: Install setuptools
