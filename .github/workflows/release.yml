@@ -44,8 +44,8 @@ jobs:
       - name: Install
         run: npm ci --ignore-scripts
       - name: List files
-        run: ls -laR
         shell: bash
+        run: pwd && ls -la
       - name: Build
         run: npm run build:${{ matrix.build-group }}
         shell: bash
