@@ -69,6 +69,8 @@ jobs:
         run: pip install setuptools
       - name: Update npm
         run: npm install -g npm@8
+      - name: List files
+        run: ls -laR
       - name: Install
         run: npm ci --ignore-scripts
       - name: Download artifacts
