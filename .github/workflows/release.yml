@@ -43,11 +43,11 @@ jobs:
         run: npm install -g npm@8
       - name: Install
         run: npm ci --ignore-scripts
-      - name: Build
-        run: npm run build:${{ matrix.build-group }}
-        shell: bash
       - name: List files
         run: ls -laR
+        shell: bash
+      - name: Build
+        run: npm run build:${{ matrix.build-group }}
         shell: bash
       - name: Upload artifact
         uses: actions/upload-artifact@v3
