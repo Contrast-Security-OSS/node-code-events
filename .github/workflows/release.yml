@@ -46,6 +46,9 @@ jobs:
       - name: Build
         run: npm run build:${{ matrix.build-group }}
         shell: bash
+      - name: List files
+        run: ls -laR
+        shell: bash
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
@@ -69,8 +72,6 @@ jobs:
         run: pip install setuptools
       - name: Update npm
         run: npm install -g npm@8
-      - name: List files
-        run: ls -laR
       - name: Install
         run: npm ci --ignore-scripts
       - name: Download artifacts
