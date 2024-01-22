@@ -1,0 +1,72 @@
+name: Test and Leak Check
+
+on:
+  push:
+    tags:
+      - '*-run-leak-checks'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  HUSKY: 0
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [16, 18, 20]
+        os: [ubuntu-latest, macos-latest]
+    name: Node v${{ matrix.node }} (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+          architecture: x64
+      # versions of npm associated with node 12 on macs use an ancient version
+      # of node-gyp when executing `npm ci`. not sure this is needed any longer
+      - name: Update npm
+        run: npm install -g npm@8
+      - name: Python version
+        run: python --version
+      # distutils is no longer included in python 3.12
+      - name: Install setuptools
+        run: pip install setuptools
+      - name: Update npm
+        run: npm install -g npm@8
+      - name: Install dependencies
+        run: npm ci
+      - name: Show node-gyp version
+        run: npm ls node-gyp
+      # run the tests first to ensure that they run successfully
+      - name: run node:test noop
+        run: node test/noop.node-test.js
+      - name: run node:test index-exclude
+        run: node test/index-exclude.node-test.js
+      - name: run node:test index-include
+        run: node test/index-include.node-test.js
+      - name: node:test multi-thread
+        run: node test/multi-thread.node-test.js
+      - name: node:test worker-thread-exec-test
+        run: node test/worker-thread-exec-test.node-test.js
+      - name: node:test internals
+        run: node test/internals.node-test.js
+      # finally, run the leak checks, but only on ubuntu. valgrind
+      # doesn't support mac on arm nor windows. there is a commercial
+      # product for windows, deleaker, that is robust and Dr. Memory,
+      # which is free but is unknown to me.
+      - name: run node:test leak-check
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          sudo apt install -y valgrind
+          ./scripts/execute-leak-suite.sh

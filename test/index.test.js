@@ -1,41 +1,36 @@
 // @ts-check
 'use strict';
 
-const semver = require('semver');
 const { expect } = require('chai');
-const { setCodeEventListener, stopListening } = require('.');
 
-describe('canary worker_thread test', function () {
-  it('require in a worker thread succeeds after require in main thread', function (done) {
-    const { Worker } = require('worker_threads');
-    const worker = new Worker(`
-      const { setCodeEventListener, stopListening } = require('.');
+const codeEvents = require('..');
+const { setCodeEventListener, stopListening } = codeEvents;
 
-      setCodeEventListener(function (event) {
-        console.log(event);
-      });
+const listenerOptions = {
+  interval: 100,
+  excludeNode: false,
+  excludeNonFunction: false,
+};
 
-      setTimeout(() => {
-        stopListening();
-      }, 100);
-    `, { eval: true });
+const nodeVersion = +process.versions.node.split('.')[0];
+const nodeModulePrefix = nodeVersion >= 16 ? 'node:' : 'internal/';
 
-    worker.on('error', done);
+let type = null;
+if (!listenerOptions.excludeNonFunction) {
+  type = nodeVersion >= 20 ? 'Function' : 'LazyCompile';
+}
 
-    worker.on('exit', exitCode => {
-      expect(exitCode).equal(0);
-      done();
-    });
-  });
-});
+let lastTotalEvents = 0;
+let lastTotalTime = 0n; // eslint-disable-line
+
 
 describe('setCodeEventListener', function () {
-  const type = semver.gte(process.version, '20.0.0') ? 'Function' : 'LazyCompile';
   const TIMEOUT = process.platform === 'win32' ? 61000 : 10000;
   this.timeout(TIMEOUT);
 
   let waitForLazyCompile;
   let handler;
+  let nodeColonSeen = false;
 
   before(function (done) {
     const events = [];
@@ -45,6 +40,9 @@ describe('setCodeEventListener', function () {
       new Promise((resolve) => {
         const _interval = setInterval(() => {
           for (let i = eventIndex; i < events.length; i++, eventIndex++) {
+            if (events[i].script.startsWith(nodeModulePrefix)) {
+              nodeColonSeen = true;
+            }
             if (events[i].func === name) {
               clearInterval(_interval);
               resolve(events[i]);
@@ -62,7 +60,7 @@ describe('setCodeEventListener', function () {
       events.push(event);
     };
 
-    setCodeEventListener(handler, 1);
+    setCodeEventListener(handler, listenerOptions);
 
     // in CI it takes a long time for windows to get through the initial burst
     // of available code events
@@ -73,11 +71,20 @@ describe('setCodeEventListener', function () {
     }
   });
 
+  afterEach(function() {
+    // @ts-ignore
+    lastTotalEvents = codeEvents.totalEvents;
+    // @ts-ignore
+    lastTotalTime = codeEvents.totalTime;
+  });
+
   after(function () {
     stopListening();
   });
 
   it('reports simple LazyCompile events', async function () {
+    // @ts-ignore
+    const lineNumber = thisLine() + 1;
     function testfunc1() {
       return 1 + 2;
     }
@@ -85,35 +92,48 @@ describe('setCodeEventListener', function () {
     testfunc1();
 
     const event = await waitForLazyCompile('testfunc1');
-    expect(event).to.deep.equal({
+    expect(event).to.deep.equal(makeExpected({
       func: 'testfunc1',
-      lineNumber: 81,
+      lineNumber,
       script: __filename,
       type
-    });
+    }));
+    // @ts-ignore
+    expect(codeEvents.totalEvents).above(500);
+
+    // only seen when not excluded
+    expect(nodeColonSeen).true;
   });
 
   it('reports arrow function', async function () {
-    const testfunc2 = () => 1 + 2;
+    const testfunc2 = () => 1 + 2; const lineNumber = thisLine();
 
     testfunc2();
 
     const event = await waitForLazyCompile('testfunc2');
-    expect(event).to.deep.equal({
+    expect(event).to.deep.equal(makeExpected({
       func: 'testfunc2',
-      lineNumber: 97,
+      lineNumber,
       script: __filename,
       type
-    });
+    }));
+    // @ts-ignore
+    expect(codeEvents.totalEvents - lastTotalEvents).above(5);
   });
 
   it('reports class functions', async function () {
+    let lineNumber1;
+    let lineNumber2;
     class MyClass {
       constructor() {
+        // @ts-ignore
+        lineNumber1 = thisLine() - 2;
         this.foo = 123;
       }
 
       bar() {
+        // @ts-ignore
+        lineNumber2 = thisLine() - 2;
         return this.foo + 2;
       }
     }
@@ -122,38 +142,42 @@ describe('setCodeEventListener', function () {
     instance.bar();
 
     const event1 = await waitForLazyCompile('MyClass');
-    expect(event1).to.deep.equal({
+    expect(event1).to.deep.equal(makeExpected({
       func: 'MyClass',
-      lineNumber: 112,
+      lineNumber: lineNumber1,
       script: __filename,
       type
-    });
+    }));
+    // @ts-ignore
+    expect(codeEvents.totalEvents - lastTotalEvents).above(0);
 
     const event2 = await waitForLazyCompile('bar');
-    expect(event2).to.deep.equal({
+    expect(event2).to.deep.equal(makeExpected({
       func: 'bar',
-      lineNumber: 116,
+      lineNumber: lineNumber2,
       script: __filename,
       type
-    });
+    }));
   });
 
   it('reports delayed function', async function () {
     const declareTime = Date.now();
 
-    const testfunc3 = () => 1 + 2;
-    setTimeout(testfunc3, 1500);
+    const testfunc3 = () => 1 + 2; const lineNumber = thisLine();
+    setTimeout(testfunc3, 500);
 
     const event = await waitForLazyCompile('testfunc3');
-    expect(event).to.deep.equal({
+    expect(event).to.deep.equal(makeExpected({
       func: 'testfunc3',
-      lineNumber: 144,
+      lineNumber,
       script: __filename,
       type
-    });
+    }));
+    // @ts-ignore
+    expect(codeEvents.totalEvents - lastTotalEvents).above(0);
 
-    // setTimeout isn't exact but it should be close to 1.5 seconds after declaration
-    expect(Date.now() - declareTime).to.be.above(1250);
+    // setTimeout isn't exact but it should never been 10ms below the timeout
+    expect(Date.now() - declareTime).to.be.above(490);
   });
 
   it('should be able to change the listener function', async function () {
@@ -161,19 +185,19 @@ describe('setCodeEventListener', function () {
     setCodeEventListener(function (event) {
       newListenerCalled = true;
       handler(event);
-    });
+    }, listenerOptions);
 
-    const testfunc4 = () => 1 + 2;
+    const testfunc4 = () => 1 + 2; const lineNumber = thisLine();
     testfunc4();
 
     const event = await waitForLazyCompile('testfunc4');
     expect(newListenerCalled).to.be.true;
-    expect(event).to.deep.equal({
+    expect(event).to.deep.equal(makeExpected({
       func: 'testfunc4',
-      lineNumber: 166,
+      lineNumber,
       script: __filename,
       type
-    });
+    }));
   });
 
   it('can stop listening when not listening', function () {
@@ -181,3 +205,22 @@ describe('setCodeEventListener', function () {
   });
 });
 
+function thisLine() {
+  let line;
+  const _prepareStackTrace = Error.prepareStackTrace;
+  Error.prepareStackTrace = (_, stack) => {
+    line = stack[1].getLineNumber();
+  };
+  const e = new Error();
+  e.stack;
+  Error.prepareStackTrace = _prepareStackTrace;
+  return line;
+}
+
+function makeExpected({ func, lineNumber, script, type }) {
+  const expected = { func, lineNumber, script };
+  if (type) {
+    expected.type = type;
+  }
+  return expected;
+}

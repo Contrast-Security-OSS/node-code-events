@@ -1,47 +1,39 @@
 {
   "name": "@contrast/code-events",
   "version": "1.0.1",
-  "description": "Subscribe to receive queued v8 CodeEvents on polling interval",
-  "keywords": [
-    "instrumentation"
-  ],
-  "author": "Contrast Security",
+  "description": "Listen for v8 CodeEvents and make them available to JavaScript",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "repository": "",
+  "author": "Contrast Security, Inc.",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Contrast-Security-Inc/node-code-events.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Contrast-Security-Inc/node-code-events/issues"
-  },
-  "homepage": "https://github.com/Contrast-Security-Inc/node-code-events#readme",
+  "homepage": "",
   "files": [
     "prebuilds/",
-    "src/",
-    "binding.gyp",
     "index.d.ts",
     "index.js"
   ],
-  "main": "index.js",
-  "types": "index.d.ts",
   "scripts": {
+    "compile-commands": "node-gyp configure --release -- -f gyp.generator.compile_commands_json.py && mv Release/compile_commands.json ./",
+    "rebuild": "node-gyp rebuild -j max",
+    "rebuild-debug": "node-gyp rebuild -j max --debug",
     "install": "node-gyp-build",
     "prepare": "husky install",
     "prebuild": "npm run clean",
-    "build": "prebuildify -t 12.13.0 -t 14.15.0 -t 16.9.1 -t 18.7.0 -t 20.5.0 --strip",
-    "build:linux": "prebuildify-cross -i centos7-devtoolset7 -i alpine -i linux-arm64 -t 12.13.0 -t 14.15.0 -t 16.9.1 -t 18.7.0 -t 20.5.0 --strip",
+    "build": "prebuildify -t 14.15.0 -t 16.9.1 -t 18.7.0 -t 20.6.0 --strip",
+    "build:linux": "prebuildify-cross -i centos7-devtoolset7 -i alpine -i linux-arm64 -t 14.15.0 -t 16.9.1 -t 18.7.0 -t 20.6.0 --strip",
     "build:darwin": "npm run build -- --arch x64+arm64",
     "build:win32": "npm run build",
     "clean": "rimraf build/ coverage/ prebuilds/",
     "download": "node scripts/download-artifacts.js",
-    "test": "c8 --reporter lcov --reporter text mocha .",
-    "test:valgrind": "valgrind --xml=yes --xml-file=./valgrind.xml --trace-children=yes --leak-check=full --show-leak-kinds=all mocha . && node scripts/parse-valgrind.js"
+    "test": "c8 --reporter lcov --reporter text mocha test/*.test.js",
+    "test:valgrind": "valgrind --xml=yes --xml-file=./valgrind.xml --trace-children=yes --leak-check=full --show-leak-kinds=all node ./scripts/execute-leak-suite.js"
   },
+  "keywords": [],
   "engines": {
-    "node": ">=12.13.0"
+    "node": ">=14.15"
   },
   "dependencies": {
-    "nan": "^2.17.0",
     "node-gyp-build": "^4.6.0"
   },
   "devDependencies": {
@@ -50,9 +42,12 @@
     "@octokit/rest": "^20.0.1",
     "c8": "^8.0.1",
     "chai": "^4.3.7",
+    "fast-xml-parser": "^4.3.3",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
     "mocha": "^10.2.0",
+    "nan": "^2.18.0",
+    "node-addon-api": "^7.1.0",
     "node-gyp": "^9.4.1",
     "prebuildify": "^5.0.1",
     "prebuildify-cross": "^5.0.0",
