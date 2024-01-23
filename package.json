@@ -11,7 +11,9 @@
   "files": [
     "prebuilds/",
     "index.d.ts",
-    "index.js"
+    "index.js",
+    "src/*",
+    "binding.gyp"
   ],
   "scripts": {
     "compile-commands": "node-gyp configure --release -- -f gyp.generator.compile_commands_json.py && mv Release/compile_commands.json ./",
