@@ -1,6 +1,6 @@
 {
   "name": "@contrast/code-events",
-  "version": "2.0.0",
+  "version": "1.0.1",
   "description": "Listen for v8 CodeEvents and make them available to JavaScript",
   "main": "index.js",
   "types": "index.d.ts",
