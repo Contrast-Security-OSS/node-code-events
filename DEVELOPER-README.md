@@ -46,7 +46,7 @@ The `*.node-test.js` files are:
 - `spawned-test.node-test.js` - use child_process to spawn `canary-thread.test.js` (see note)
 - `worker-thread-exec-test.node-test.js` - executes the include and exclude scripts
 
-The best place to see how this works is `scripts/execute-leak-suite.sh` (as soon as i write it).
+The best place to see how this works is `scripts/execute-leak-suite.sh`.
 
 Running `index-*-node-test.js` or `noop.node-test.js`, the valgrind results will show
 `Leak_DefinitelyLost` results. My hypothesis is that node does not unload the addon
